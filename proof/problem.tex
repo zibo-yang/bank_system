@@ -2,84 +2,56 @@
 \usepackage{amsmath,amssymb,amsthm,xcolor}
 \input{_macros}
 
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}{Conjecture}
 
-\title{Stabilizing quantities $\rho_p$ for boundary control of PDE}
-\author{Amaury Hayat}
-\date{February 09, 2026}
+\title{Proof of Conjecture~3: Strict Monotonicity of $\rho_p$ for Hadamard Matrices}
+\author{}
+\date{}
 
 \begin{document}
 \maketitle
 
-\section*{Context}
+\section*{Problem Statement}
 
-This is a question originally raised by Jean-Michel Coron in 2016.
-When studying the stability of nonlinear PDE of the form
-\begin{equation}
-\partial_t u + A(u)\partial_x u + B(u) = 0, \quad \text{on } [0, L],
-\end{equation}
-where $u \in \mathbb{R}^n$ and with boundary conditions of the form
-\begin{equation}
-\begin{pmatrix} u^+(t, 0) \\ u^-(t, L) \end{pmatrix}
-= G
-\begin{pmatrix} u^+(t, L) \\ u^-(t, 0) \end{pmatrix},
-\end{equation}
-a natural quantity that appears is the following function
-\begin{equation}
-\rho_p : M \mapsto \inf\{\|\Delta M \Delta^{-1}\|_p \mid \Delta = \mathrm{diag}(\delta_1, \ldots, \delta_n),\; \delta_i > 0,\; \forall\, i \in \{1, \ldots, n\}\},
-\end{equation}
-where $\|\cdot\|_p$ is the matrix $p$-norm.
+When studying the stability of nonlinear PDE of the form $\partial_t u + A(u)\partial_x u + B(u) = 0$ on $[0, L]$, the following stabilizing quantities arise:
+\[
+\rho_p(M) := \inf\{\|\Delta M \Delta^{-1}\|_p \mid \Delta = \operatorname{diag}(\delta_1, \ldots, \delta_n),\; \delta_i > 0\},
+\]
+where $\|\cdot\|_p$ is the induced $\ell^p$-operator norm.
 
-\begin{conjecture}
-For any $M \in \mathbb{R}^{n \times n}$ one has
-\begin{equation}
-\rho_2(M) \leq \rho_3(M) \leq \cdots \leq \rho_\infty(M).
-\end{equation}
-\end{conjecture}
-
-A weaker version is:
-\begin{conjecture}
-For any $M \in \mathbb{R}^{n \times n}$ one has
-\begin{equation}
-\rho_2(M) \leq \rho_k(M), \quad \forall\, k \in \mathbb{N} \setminus \{0\}.
-\end{equation}
-\end{conjecture}
-
-Another conjecture is:
-\begin{conjecture}
-For any $n > 6$, and any $p > 2$ ($n, p \in \mathbb{N}$) there exists $M \in \mathbb{R}^{n \times n}$ such that
-\begin{equation}
+\begin{conjecture}[Conjecture 3]
+For any $n > 6$, and any $p > 2$ ($n, p \in \mathbb{N}$), there exists $M \in \mathbb{R}^{n \times n}$ such that
+\[
 \rho_p(M) < \rho_{p+1}(M).
-\end{equation}
+\]
 \end{conjecture}
 
-\section*{What is already known}
+\section*{Overview of the Proof}
 
-The main previous works are in \cite{coron2008,coron2015}. In particular it is known that for any $n \in \mathbb{N}$ and any $M \in \mathbb{R}^{n \times n}$,
-\begin{equation}
-\rho_1(M) \geq \rho_2(M), \qquad \rho_1(M) = \rho_\infty(M),
-\end{equation}
-and for $n \geq 2$ there exists $M \in \mathbb{R}^{n \times n}$ such that
-\begin{equation}
-\rho_1(M) > \rho_2(M).
-\end{equation}
-It is also known \cite{rump2003} that if $M$ has only non-negative coefficients then
-\begin{equation}
-\rho_k(M) = \rho_1(M), \quad \forall\, k \in [1, +\infty].
-\end{equation}
+Our strategy is to use \textbf{Sylvester--Hadamard matrices}. For an $m \times m$ Hadamard matrix $H$ satisfying $H^\top H = mI$, we establish the exact formula $\rho_r(H) = m^{1-1/r}$ for all $r \geq 2$ by combining:
+\begin{itemize}
+\item An \textbf{upper bound} via the Riesz--Thorin interpolation theorem (interpolating between the $\ell^2$ and $\ell^\infty$ operator norms);
+\item A matching \textbf{lower bound} via a test-vector argument using the rows of $H$.
+\end{itemize}
+Since $m^{1-1/r}$ is strictly increasing in $r$ (for $m \geq 2$), we get $\rho_p(H) < \rho_{p+1}(H)$ for all $p \geq 2$. Embedding $H$ into larger dimensions via zero-padding completes the proof for all $n > 6$.
 
-\section*{Our Goal: Prove Conjecture 3}
-
-We aim to prove that for any $n > 6$ and any integer $p > 2$, there exists a matrix $M \in \mathbb{R}^{n \times n}$ such that $\rho_p(M) < \rho_{p+1}(M)$.
-
-%% Proof sections will be \input'd here
+\input{section_1_hadamard_core}
+\input{section_2_norm_upper_bound}
+\input{section_3_scaling_lower_bound}
+\input{section_4_monotonicity}
+\input{section_5_embedding}
 
 \begin{thebibliography}{9}
-\bibitem{coron2015} Jean-Michel Coron and Hoai-Minh Nguyen. \textit{Dissipative boundary conditions for nonlinear 1-D hyperbolic systems: sharp conditions through an approach via time-delay systems.} SIAM J.\ Math.\ Anal., 47(3):2220--2240, 2015.
+\bibitem{coron2015} J.-M.\ Coron and H.-M.\ Nguyen. \textit{Dissipative boundary conditions for nonlinear 1-D hyperbolic systems: sharp conditions through an approach via time-delay systems.} SIAM J.\ Math.\ Anal., 47(3):2220--2240, 2015.
 
-\bibitem{coron2008} Jean-Michel Coron, Georges Bastin, and Brigitte d'Andr\'ea-Novel. \textit{Dissipative boundary conditions for one-dimensional nonlinear hyperbolic systems.} SIAM Journal on Control and Optimization, 47(3):1460--1498, 2008.
+\bibitem{coron2008} J.-M.\ Coron, G.\ Bastin, and B.\ d'Andr\'ea-Novel. \textit{Dissipative boundary conditions for one-dimensional nonlinear hyperbolic systems.} SIAM J.\ Control Optim., 47(3):1460--1498, 2008.
 
-\bibitem{rump2003} Siegfried M.\ Rump. \textit{Optimal scaling for $p$-norms and componentwise distance to singularity.} IMA Journal of Numerical Analysis, 23(1):1--9, 2003.
+\bibitem{rump2003} S.\ M.\ Rump. \textit{Optimal scaling for $p$-norms and componentwise distance to singularity.} IMA J.\ Numer.\ Anal., 23(1):1--9, 2003.
+
+\bibitem{rieszthorin} M.\ Riesz. \textit{Sur les maxima des formes bilin\'eaires et sur les fonctionnelles lin\'eaires.} Acta Math., 49:465--497, 1926. (See also G.O.\ Thorin, 1948.)
 \end{thebibliography}
 
 \end{document}

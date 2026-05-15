@@ -1,0 +1,39 @@
+\section{Exact Formula and Strict Monotonicity of $\rho_r(H)$}
+
+\begin{theorem}\label{thm:rho-formula}
+Let $H$ be an $m \times m$ Sylvester--Hadamard matrix with $m = 2^k$ and $k \geq 1$. Then for every real $r \geq 2$:
+\[
+\rho_r(H) = m^{1-1/r}.
+\]
+Moreover, the function $r \mapsto \rho_r(H)$ is strictly increasing on $[2, \infty)$.
+\end{theorem}
+
+\begin{proof}
+\textbf{Part (a).} Fix any real number $r \geq 2$. By the upper bound from Section~2, using $D = I$:
+\[
+\rho_r(H) \leq \|H\|_{r \to r} \leq m^{1 - 1/r}.
+\]
+By the lower bound from Section~3:
+\[
+\rho_r(H) \geq m^{1 - 1/r}.
+\]
+Therefore $\rho_r(H) = m^{1 - 1/r}$.
+
+\medskip
+
+\textbf{Part (b).} Since $k \geq 1$, we have $m \geq 2$, so $m > 1$.
+
+Let $2 \leq r < s$. Then $1/r > 1/s$, so $1 - 1/r < 1 - 1/s$. Since $m > 1$, the exponential function $t \mapsto m^t$ is strictly increasing. Hence
+\[
+\rho_r(H) = m^{1 - 1/r} < m^{1 - 1/s} = \rho_s(H).
+\]
+
+In particular, for every real $p \geq 2$, taking $r = p$ and $s = p+1$:
+\[
+\rho_p(H) = m^{1-1/p} < m^{1-1/(p+1)} = \rho_{p+1}(H),
+\]
+where the strict inequality follows because
+\[
+\left(1 - \frac{1}{p+1}\right) - \left(1 - \frac{1}{p}\right) = \frac{1}{p} - \frac{1}{p+1} = \frac{1}{p(p+1)} > 0. \qedhere
+\]
+\end{proof}
