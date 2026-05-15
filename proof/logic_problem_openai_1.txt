@@ -1,45 +1,40 @@
-**Proof structure: valid**, assuming the matrix \(p\)-norm in the problem is the induced \(\ell^p\to \ell^p\) operator norm, as used in the outline.
+**Proof structure: valid.**
 
-No major structural gaps appear. If all five subproblems are proved as stated, they do imply Conjecture 3.
+If all three subproblems are proved as stated, they fully imply Conjecture 3.
 
 ### Checks
 
-1. **Completeness**
-   - Subproblems 1–3 establish the exact formula
-     \[
-     \rho_r(C)=\Gamma_r
-     \]
-     for every integer \(r\ge 3\).
-   - Subproblem 4 gives
-     \[
-     \Gamma_r<\Gamma_{r+1},
-     \]
-     hence
-     \[
-     \rho_r(C)<\rho_{r+1}(C)
-     \]
-     for every integer \(r\ge 3\).
-   - Since the conjecture requires \(p>2\) with \(p\in\mathbb N\), this covers all needed \(p\).
-   - Subproblem 5 embeds the \(7\times 7\) example into every dimension \(n\ge 7\), which is exactly \(n>6\).
+1. **Completeness:**  
+   The outline gives an explicit construction for every required pair \((n,p)\):  
+   \[
+   M = H \oplus 0_{n-2}.
+   \]
+   Subproblem 2 gives the exact values
+   \[
+   \rho_r(H)=2^{1-1/r}
+   \]
+   for all relevant \(r\ge 2\), and Subproblem 3 transfers these values unchanged to the padded \(n\times n\) matrix. Then the strict inequality
+   \[
+   2^{1-1/p} < 2^{1-1/(p+1)}
+   \]
+   proves \(\rho_p(M)<\rho_{p+1}(M)\). No missing cases are apparent: \(n>6\) ensures \(n-2>0\), and \(p>2\) implies both \(p\) and \(p+1\) lie in the range covered by Subproblem 2.
 
-2. **Dependencies**
-   - Subproblem 1 provides the algebraic identities used in Subproblems 2 and 3.
-   - Subproblem 2 gives the upper bound \(\rho_r(C)\le \Gamma_r\) by testing the identity scaling.
-   - Subproblem 3 gives the lower bound for every diagonal scaling, and its conclusion \(\rho_r(C)=\Gamma_r\) correctly depends on Subproblem 2.
-   - Subproblem 4 depends only on the definition of \(\Gamma_r\).
-   - Subproblem 5 depends on the definition of \(\rho_r\) and the block-diagonal norm property, and then transfers the result to all \(n>6\).
+2. **Dependencies:**  
+   The dependencies are coherent:
+   - Subproblem 1 is used by Subproblem 2 to obtain the upper bound at the unscaled choice \(D=I\).
+   - Subproblem 2 is used in the final construction to compute \(\rho_p(H)\) and \(\rho_{p+1}(H)\).
+   - Subproblem 3 is independent and is used only in the final embedding step.
+   
+   No subproblem appears to rely on a later result.
 
-3. **Relevance**
-   - Each subproblem has a clear role and is needed:
-     - Subproblem 1: constructs the witness matrix and its identities.
-     - Subproblem 2: supplies the upper bound.
-     - Subproblem 3: supplies the diagonal-scaling lower bound.
-     - Subproblem 4: supplies strict separation between consecutive \(p\)-values.
-     - Subproblem 5: handles all dimensions \(n>6\).
-   - No subproblem appears redundant or irrelevant.
+3. **Relevance:**  
+   Each subproblem has a clear role:
+   - Subproblem 1 computes the base norm.
+   - Subproblem 2 passes from ordinary norm to optimally diagonally scaled norm.
+   - Subproblem 3 allows embedding into arbitrary dimension \(n>6\).
+   
+   None of the listed subproblems is redundant for this proof strategy.
 
-### Minor caveat
+### Minor note
 
-For \(n=7\), Subproblem 5 should be interpreted with the empty zero block, i.e. simply \(M_7=C\). This is harmless and not a real gap.
-
-Overall, the proof plan is logically sound.
+The argument actually proves a stronger dimensional statement than required, since the construction works in every dimension \(n\ge 2\), not only \(n>6\). This is not a flaw; it strengthens the result.

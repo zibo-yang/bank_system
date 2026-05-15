@@ -1,0 +1,50 @@
+ISSUES_FOUND: count=1
+
+Issue 1 (run1, global):
+  Justification Gap -- The proof uses the inequality ||(a,b)||_r >= max(|a|,|b|)
+  (i.e., that the ell_r norm dominates each coordinate's absolute value) in both
+  the t>=1 and 0<t<=1 cases, but never explicitly states or justifies this property.
+  Specifically, the steps
+    (|1+t|^r + |t^{-1}-1|^r)^{1/r} >= 1+t
+  and
+    (|1-t|^r + |t^{-1}+1|^r)^{1/r} >= t^{-1}+1
+  are invoked without proof or citation.
+
+--- Appendix: Full verifier output (verify_section_2_sol_v1.txt) ---
+
+Anchor: global
+Location:
+```latex
+Since $t\geq 1$, we have $1+t\geq 2$, and therefore
+\[
+\|A_t x\|_r
+\geq
+2^{-1/r}(1+t)
+\geq
+2^{-1/r}\cdot 2
+=
+2^{1-1/r}.
+\]
+```
+and
+```latex
+Since $0<t\leq 1$, we have $t^{-1}\geq 1$, so $t^{-1}+1\geq 2$. Hence
+\[
+\|A_t y\|_r
+\geq
+2^{-1/r}(t^{-1}+1)
+\geq
+2^{-1/r}\cdot 2
+=
+2^{1-1/r}.
+\]
+```
+Description: Justification Gap. The inequalities
+\[
+\left(|1+t|^r+|t^{-1}-1|^r\right)^{1/r}\ge 1+t
+\]
+and
+\[
+\left(|1-t|^r+|t^{-1}+1|^r\right)^{1/r}\ge t^{-1}+1
+\]
+are used without explicitly stating or justifying the required property that an \(\ell_r\)-norm dominates the absolute value of each coordinate. Under the stated grading rules, this cannot be silently inferred.

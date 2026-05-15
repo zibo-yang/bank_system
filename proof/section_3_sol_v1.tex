@@ -1,148 +1,83 @@
-There is a small algebraic typo in the suggested test vector: to obtain  
+```latex
+\begin{proof}
+Let $\mathcal{D}_n$ denote the set of positive diagonal matrices in
+$\mathbb{R}^{n \times n}$. We first record a basic fact about induced
+$\ell_r$ operator norms. If $A \in \mathbb{R}^{p \times p}$ and
+$C \in \mathbb{R}^{q \times q}$, then for every $r \in [1,\infty)$,
 \[
-DCD^{-1}x=D(Cc_i),
+\|A \oplus C\|_r=\max\{\|A\|_r,\|C\|_r\}.
 \]
-one must take  
+Indeed, for vectors $x \in \mathbb{R}^p$ and $y \in \mathbb{R}^q$, one has
 \[
-x=Dc_i,
+\|(A \oplus C)(x,y)\|_r^r
+=
+\|Ax\|_r^r+\|Cy\|_r^r
+\le
+\max\{\|A\|_r,\|C\|_r\}^r
+\bigl(\|x\|_r^r+\|y\|_r^r\bigr).
 \]
-not \(x=D^{-1}c_i\). Indeed, \(D^{-1}(Dc_i)=c_i\).
-
+Thus
 \[
-\textbf{Proof.}
+\|A \oplus C\|_r \le \max\{\|A\|_r,\|C\|_r\}.
 \]
-
-Fix an integer \(r\geq 3\), and let  
+Conversely, taking $y=0$ gives
 \[
-D=\operatorname{diag}(d_1,\dots,d_7)
+\|A \oplus C\|_r \ge \|A\|_r,
 \]
-with \(d_j>0\) for all \(j\). Define  
+and taking $x=0$ gives
 \[
-A:=DCD^{-1}.
-\]
-Choose an index \(i\) such that  
-\[
-d_i=\max_{1\leq j\leq 7} d_j.
-\]
-Let \(c_i\) be the \(i\)th column of \(C\), and test \(A\) on the nonzero vector  
-\[
-x:=Dc_i.
-\]
-Since \(D^{-1}x=c_i\), we have
-\[
-Ax=DCD^{-1}(Dc_i)=D(Cc_i).
-\]
-By the assumed identity \(Cc_i=8e_i-\mathbf 1\), this gives
-\[
-Ax=D(8e_i-\mathbf 1).
-\]
-The vector \(8e_i-\mathbf 1\) has \(i\)th coordinate \(7\) and all other coordinates equal to \(-1\). Hence
-\[
-(Ax)_i=7d_i,
-\qquad
-(Ax)_j=-d_j \quad (j\neq i).
+\|A \oplus C\|_r \ge \|C\|_r.
 \]
 Therefore
 \[
-\|Ax\|_r^r=(7d_i)^r+\sum_{j\neq i}d_j^r.
+\|A \oplus C\|_r=\max\{\|A\|_r,\|C\|_r\}.
 \]
 
-Because \(C\) is a Hadamard core matrix, every entry of \(c_i\) has absolute value \(1\). Thus
+Now let $M=B \oplus 0_k$. Every positive diagonal matrix
+$D \in \mathcal{D}_{m+k}$ decomposes uniquely as
 \[
-\|x\|_r^r
+D=E \oplus F,
+\]
+where $E \in \mathcal{D}_m$ and $F \in \mathcal{D}_k$. Hence
+\[
+DMD^{-1}
 =
-\|Dc_i\|_r^r
+(E \oplus F)(B \oplus 0_k)(E^{-1}\oplus F^{-1})
 =
-\sum_{j=1}^7 d_j^r |(c_i)_j|^r
+(EBE^{-1}) \oplus 0_k.
+\]
+Using the block diagonal norm identity above,
+\[
+\|DMD^{-1}\|_r
 =
-\sum_{j=1}^7 d_j^r
+\|(EBE^{-1}) \oplus 0_k\|_r
 =
-d_i^r+\sum_{j\neq i}d_j^r.
+\max\{\|EBE^{-1}\|_r,\|0_k\|_r\}
+=
+\|EBE^{-1}\|_r.
 \]
 
-Set
+Therefore,
 \[
-S:=\sum_{j\neq i}\left(\frac{d_j}{d_i}\right)^r.
-\]
-Since \(d_i=\max_j d_j\), we have \(0<d_j/d_i\leq 1\) for every \(j\), so
-\[
-0<S\leq 6.
-\]
-Dividing numerator and denominator by \(d_i^r\), we get
-\[
-\frac{\|Ax\|_r^r}{\|x\|_r^r}
+\rho_r(M)
 =
-\frac{7^r+S}{1+S}.
-\]
-Now compare this with \(\Gamma_r^r\). Since
-\[
-\Gamma_r^r=\frac{7^r+6}{7},
-\]
-we compute
-\[
-\frac{7^r+S}{1+S}-\frac{7^r+6}{7}
+\inf_{D \in \mathcal{D}_{m+k}} \|DMD^{-1}\|_r
 =
-\frac{7(7^r+S)-(1+S)(7^r+6)}{7(1+S)}.
+\inf_{\substack{E \in \mathcal{D}_m \\ F \in \mathcal{D}_k}}
+\|(EBE^{-1}) \oplus 0_k\|_r.
 \]
-Simplifying the numerator gives
+Since the expression is independent of $F$, this becomes
 \[
-7(7^r+S)-(1+S)(7^r+6)
+\rho_r(M)
 =
-(7^r-1)(6-S).
-\]
-Hence
-\[
-\frac{7^r+S}{1+S}-\frac{7^r+6}{7}
+\inf_{E \in \mathcal{D}_m} \|EBE^{-1}\|_r
 =
-\frac{(7^r-1)(6-S)}{7(1+S)}
-\geq 0,
+\rho_r(B).
 \]
-because \(r\geq 3\) implies \(7^r-1>0\), and \(S\leq 6\). Therefore
+Thus
 \[
-\frac{\|Ax\|_r^r}{\|x\|_r^r}
-\geq
-\frac{7^r+6}{7}
-=
-\Gamma_r^r.
+\boxed{\rho_r(B \oplus 0_k)=\rho_r(B)}
 \]
-Since the operator norm dominates the ratio obtained from any nonzero test vector,
-\[
-\|A\|_{r\to r}^r
-\geq
-\frac{\|Ax\|_r^r}{\|x\|_r^r}
-\geq
-\Gamma_r^r.
-\]
-Taking \(r\)th roots gives
-\[
-\|DCD^{-1}\|_{r\to r}\geq \Gamma_r.
-\]
-
-Since \(D>0\) was arbitrary, we have shown
-\[
-\rho_r(C)
-=
-\inf_{D>0\text{ diagonal}}\|DCD^{-1}\|_{r\to r}
-\geq
-\Gamma_r.
-\]
-On the other hand, using the upper bound from the previous subproblem, namely
-\[
-\|C\|_{r\to r}\leq \Gamma_r,
-\]
-and taking the admissible diagonal matrix \(D=I_7\), we get
-\[
-\rho_r(C)
-\leq
-\|I_7CI_7^{-1}\|_{r\to r}
-=
-\|C\|_{r\to r}
-\leq
-\Gamma_r.
-\]
-Combining the two inequalities yields
-\[
-\rho_r(C)=\Gamma_r.
-\]
-
-Thus diagonal scaling cannot improve the bound.
+for every $r \in [1,\infty)$.
+\end{proof}
+```

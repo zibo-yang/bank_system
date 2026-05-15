@@ -67,7 +67,7 @@ If no issues are found, state the solution is correct.
 
 Otherwise, produce a bug report listing every issue found. For each issue, emit EXACTLY these three fields, in this order, on separate lines:
 
-*   **Anchor:** the precise location in the solution that the issue is about. MUST be one of: `Step N` (matching a step heading like "Step 1", "Step 2.", etc.), `Lemma <label>` or `Theorem <label>` (use the LaTeX `\\label{{...}}` value if present, otherwise the lemma's number), or `global` (reserved for cross-cutting issues that genuinely do not attach to any single step or lemma — use sparingly). For issues about a specific equation, use the enclosing Step or Lemma anchor.
+*   **Anchor:** the precise location in the solution that the issue is about. MUST be one of: `Step N` (matching a step heading like "Step 1", "Step 2.", etc.), `Lemma <label>` or `Theorem <label>` (use the LaTeX `\label{...}` value if present, otherwise the lemma's number), or `global` (reserved for cross-cutting issues that genuinely do not attach to any single step or lemma — use sparingly). For issues about a specific equation, use the enclosing Step or Lemma anchor.
 *   **Location:** quoted relevant text from the solution showing the offending line(s).
 *   **Description:** the issue, classified as Critical Error or Justification Gap.
 
@@ -126,15 +126,15 @@ Ordering rule: earlier subproblems must not depend on later ones. If subproblem 
 
 For each subproblem, use EXACTLY this template — do not skip any field, do not merge fields:
 
-### Subproblem {{N}}: {{short descriptive title}}
+### Subproblem {N}: {short descriptive title}
 
-**Statement**: {{formal, self-contained statement of what this subproblem proves. This is the MOST IMPORTANT field — downstream generators will work from this statement alone, without re-reading the original problem. Spell out every definition, notation, assumption, domain, and hypothesis that the solver needs. Do NOT write shorthand like "prove X is irrational" — write the full formal claim with quantifiers, sets, and any shared context inherited from earlier subproblems. Ambiguity here causes the generator to drift from what the overall proof needs.}}
+**Statement**: {formal, self-contained statement of what this subproblem proves. This is the MOST IMPORTANT field — downstream generators will work from this statement alone, without re-reading the original problem. Spell out every definition, notation, assumption, domain, and hypothesis that the solver needs. Do NOT write shorthand like "prove X is irrational" — write the full formal claim with quantifiers, sets, and any shared context inherited from earlier subproblems. Ambiguity here causes the generator to drift from what the overall proof needs.}
 
-**Role**: {{how this subproblem fits into the overall proof — what does it establish, what does it enable the next subproblem to assume?}}
+**Role**: {how this subproblem fits into the overall proof — what does it establish, what does it enable the next subproblem to assume?}
 
-**Approach**: {{concrete technique, lemma, or construction to use — this is a directional hint, not a proof}}
+**Approach**: {concrete technique, lemma, or construction to use — this is a directional hint, not a proof}
 
-**Difficulty**: {{easy | medium | hard}}
+**Difficulty**: {easy | medium | hard}
 
 ## Integration Sketch
 
@@ -148,8 +148,9 @@ Rules:
 *   Keep "Statement" fields tight — one sentence or a short formal expression.
 *   If the problem is simple, pick the coarsest reasonable split (2 subproblems). Subsequent passes can decompose further if needed.
 *   Never return 0 or 1 subproblem. If you truly cannot decompose, still produce a "Setup" + "Main argument" split.
-*   Use TeX for math: `$x^2$`, `$$\\sum_{{n=1}}^\\infty$$`.
+*   Use TeX for math: `$x^2$`, `$$\sum_{n=1}^\infty$$`.
 
 ### Problem ###
 {problem}
 """
+

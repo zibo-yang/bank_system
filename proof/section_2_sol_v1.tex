@@ -1,156 +1,188 @@
-The requested upper bound is **false**. In fact, the proposed extremizing “row-sign vectors” are not local maximizers of the \(\ell^r\)-operator ratio. Here is a rigorous perturbation showing that, for every integer \(r\ge 3\), one can get a ratio strictly larger than \(\Gamma_r\).
-
-Fix \(i\in\{1,\dots,7\}\), and let
-
+```latex
+\begin{proof}
+Let $r \in [2,\infty)$ be fixed. For $D=\operatorname{diag}(a,b)$ with $a,b>0$, put
 \[
-c:=C e_i .
+t=\frac{a}{b}>0.
 \]
-
-Since \(C=C^\top\), this is also the \(i\)-th row-sign vector. Because \(C\mathbf 1=-\mathbf 1\), the vector \(c\) has sum \(-1\), hence exactly three entries equal to \(+1\) and four entries equal to \(-1\). Also,
-
-\[
-Cc=C^2 e_i=(8I_7-J_7)e_i=8e_i-\mathbf 1 .
-\]
-
-Thus the row-sign vector gives
-
-\[
-\frac{\|Cc\|_r^r}{\|c\|_r^r}
-=
-\frac{7^r+6}{7}
-=
-\Gamma_r^r.
-\]
-
-Now define a perturbation direction
-
-\[
-h:=\frac{7\mathbf 1+c}{24}.
-\]
-
-Equivalently,
-
-\[
-h_j=
-\begin{cases}
-\frac13, & c_j=1,\\[2mm]
-\frac14, & c_j=-1.
-\end{cases}
-\]
-
 Then
-
 \[
-c^\top h
+DHD^{-1}
 =
-3\cdot \frac13-4\cdot \frac14
+\begin{pmatrix}
+a & 0\\
+0 & b
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1\\
+1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+a^{-1} & 0\\
+0 & b^{-1}
+\end{pmatrix}
 =
-0,
+\begin{pmatrix}
+1 & a/b\\
+b/a & -1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & t\\
+t^{-1} & -1
+\end{pmatrix}.
 \]
-
-so \(h\) is tangent to the \(\ell^r\)-sphere at \(c\) to first order. For \(0<\varepsilon<4\), set
-
+Denote this matrix by
 \[
-x_\varepsilon:=c+\varepsilon h.
+A_t=\begin{pmatrix}
+1 & t\\
+t^{-1} & -1
+\end{pmatrix}.
 \]
-
-The denominator is
-
+We will show that
 \[
-\|x_\varepsilon\|_r^r
-=
-3\left(1+\frac{\varepsilon}{3}\right)^r
-+
-4\left(1-\frac{\varepsilon}{4}\right)^r .
+\|A_t\|_r \geq 2^{1-1/r}
 \]
+for every $t>0$.
 
-Next compute \(C h\). Using \(C\mathbf 1=-\mathbf 1\) and \(Cc=8e_i-\mathbf 1\),
-
+First suppose that $t\geq 1$. Let
 \[
-C h
-=
-\frac{7C\mathbf 1+Cc}{24}
-=
-\frac{-7\mathbf 1+8e_i-\mathbf 1}{24}
-=
-\frac{e_i-\mathbf 1}{3}.
+x=2^{-1/r}\begin{pmatrix}1\\1\end{pmatrix}.
 \]
-
-Therefore
-
+Then
 \[
-Cx_\varepsilon
+\|x\|_r
 =
-Cc+\varepsilon C h
+2^{-1/r}\left(|1|^r+|1|^r\right)^{1/r}
 =
-8e_i-\mathbf 1+\frac{\varepsilon}{3}(e_i-\mathbf 1).
+2^{-1/r}2^{1/r}
+=
+1.
 \]
-
-Its \(i\)-th coordinate is still \(7\), while the other six coordinates are
-
+Therefore, by the definition of the induced $\ell_r$ operator norm,
 \[
--1-\frac{\varepsilon}{3}.
+\|A_t\|_r \geq \|A_t x\|_r.
 \]
-
+Now
+\[
+A_t x
+=
+2^{-1/r}
+\begin{pmatrix}
+1+t\\
+t^{-1}-1
+\end{pmatrix}.
+\]
 Hence
-
 \[
-\|Cx_\varepsilon\|_r^r
+\|A_t x\|_r
 =
-7^r+6\left(1+\frac{\varepsilon}{3}\right)^r .
+2^{-1/r}
+\left(|1+t|^r+|t^{-1}-1|^r\right)^{1/r}.
 \]
-
-Define
-
+Since $t\geq 1$, we have $1+t\geq 2$, and therefore
 \[
-R_r(\varepsilon)
-:=
-\frac{\|Cx_\varepsilon\|_r^r}{\|x_\varepsilon\|_r^r}
+\|A_t x\|_r
+\geq
+2^{-1/r}(1+t)
+\geq
+2^{-1/r}\cdot 2
 =
-\frac{7^r+6\left(1+\frac{\varepsilon}{3}\right)^r}
-{3\left(1+\frac{\varepsilon}{3}\right)^r
-+
-4\left(1-\frac{\varepsilon}{4}\right)^r}.
+2^{1-1/r}.
 \]
-
-At \(\varepsilon=0\),
-
-\[
-R_r(0)=\frac{7^r+6}{7}=\Gamma_r^r.
-\]
-
-But differentiating at \(\varepsilon=0\) gives
-
-\[
-R_r'(0)
-=
-\frac{2r}{7}
->
-0.
-\]
-
-Therefore, for all sufficiently small \(\varepsilon>0\),
-
-\[
-R_r(\varepsilon)>\Gamma_r^r.
-\]
-
-Equivalently,
-
-\[
-\frac{\|Cx_\varepsilon\|_r}{\|x_\varepsilon\|_r}>\Gamma_r.
-\]
-
 Thus
-
 \[
-\|C\|_{r\to r}>\Gamma_r
+\|A_t\|_r \geq 2^{1-1/r}
+\]
+whenever $t\geq 1$.
+
+Now suppose that $0<t\leq 1$. Let
+\[
+y=2^{-1/r}\begin{pmatrix}1\\-1\end{pmatrix}.
+\]
+Again,
+\[
+\|y\|_r
+=
+2^{-1/r}\left(|1|^r+|-1|^r\right)^{1/r}
+=
+1.
+\]
+Thus
+\[
+\|A_t\|_r \geq \|A_t y\|_r.
+\]
+We compute
+\[
+A_t y
+=
+2^{-1/r}
+\begin{pmatrix}
+1-t\\
+t^{-1}+1
+\end{pmatrix}.
+\]
+Therefore
+\[
+\|A_t y\|_r
+=
+2^{-1/r}
+\left(|1-t|^r+|t^{-1}+1|^r\right)^{1/r}.
+\]
+Since $0<t\leq 1$, we have $t^{-1}\geq 1$, so $t^{-1}+1\geq 2$. Hence
+\[
+\|A_t y\|_r
+\geq
+2^{-1/r}(t^{-1}+1)
+\geq
+2^{-1/r}\cdot 2
+=
+2^{1-1/r}.
+\]
+Thus
+\[
+\|A_t\|_r \geq 2^{1-1/r}
+\]
+whenever $0<t\leq 1$.
+
+Combining the two cases, we have proved that for every $t>0$,
+\[
+\left\|
+\begin{pmatrix}
+1 & t\\
+t^{-1} & -1
+\end{pmatrix}
+\right\|_r
+\geq
+2^{1-1/r}.
+\]
+Equivalently, for every positive diagonal matrix $D=\operatorname{diag}(a,b)$,
+\[
+\|DHD^{-1}\|_r \geq 2^{1-1/r}.
+\]
+Taking the infimum over all such $D$, we obtain
+\[
+\rho_r(H)\geq 2^{1-1/r}.
 \]
 
-for every integer \(r\ge 3\). Consequently, the claimed sharp upper bound
-
+On the other hand, choosing $D=I$ gives
 \[
-\|C\|_{r\to r}\le \Gamma_r
+\rho_r(H)
+\leq
+\|IHI^{-1}\|_r
+=
+\|H\|_r.
 \]
-
-cannot be true, and equality at the row-sign vectors cannot characterize the operator norm.
+By the given fact,
+\[
+\|H\|_r=2^{1-1/r}.
+\]
+Therefore
+\[
+\rho_r(H)\leq 2^{1-1/r}.
+\]
+Together with the lower bound, this yields
+\[
+\rho_r(H)=2^{1-1/r}.
+\]
+\end{proof}
+```

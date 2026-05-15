@@ -1,29 +1,77 @@
+\[
 \begin{proof}
-Suppose, for contradiction, that $\sqrt{7}$ is rational. Then there exist integers $a$ and $b$ such that $b \neq 0$, $\gcd(a,b)=1$, and
+Let $r \in [2,\infty)$ be fixed. We first record the standard norm comparisons on $\mathbb{R}^2$: for every $z=(z_1,z_2)\in\mathbb{R}^2$,
 \[
-\sqrt{7}=\frac{a}{b}.
+\|z\|_r \le \|z\|_2
 \]
-Squaring both sides gives
+and
 \[
-7=\frac{a^2}{b^2},
+\|z\|_2 \le 2^{1/2-1/r}\|z\|_r.
+\]
+The first inequality follows from monotonicity of finite-dimensional $\ell_p$ norms when $r\ge 2$. For the second, if $r=2$ it is equality, while if $r>2$, Hölder's inequality gives
+\[
+\|z\|_2^2
+=\sum_{j=1}^2 |z_j|^2
+\le \left(\sum_{j=1}^2 |z_j|^r\right)^{2/r}
+\left(\sum_{j=1}^2 1^{r/(r-2)}\right)^{(r-2)/r}
+=2^{1-2/r}\|z\|_r^2.
+\]
+Taking square roots yields
+\[
+\|z\|_2 \le 2^{1/2-1/r}\|z\|_r.
+\]
+
+Now let $x=(a,b)\in\mathbb{R}^2$. Then
+\[
+Hx=(a+b,a-b),
 \]
 so
 \[
-7b^2=a^2.
+\|Hx\|_2^2
+=|a+b|^2+|a-b|^2
+=2a^2+2b^2
+=2\|x\|_2^2.
 \]
-Thus $7 \mid a^2$. Since $7$ is prime, it follows that $7 \mid a$. Hence there exists an integer $k$ such that
+Hence
 \[
-a=7k.
+\|Hx\|_2=\sqrt{2}\,\|x\|_2.
 \]
-Substituting this into $7b^2=a^2$ gives
+Using the norm comparisons above, we obtain
 \[
-7b^2=(7k)^2=49k^2.
+\|Hx\|_r
+\le \|Hx\|_2
+=\sqrt{2}\,\|x\|_2
+\le \sqrt{2}\,2^{1/2-1/r}\|x\|_r
+=2^{1-1/r}\|x\|_r.
 \]
-Dividing by $7$, we obtain
+Therefore
 \[
-b^2=7k^2.
+\|H\|_r\le 2^{1-1/r}.
 \]
-Therefore $7 \mid b^2$, and since $7$ is prime, $7 \mid b$.
 
-Thus $7$ divides both $a$ and $b$, contradicting the assumption that $\gcd(a,b)=1$. Therefore $\sqrt{7}$ is irrational.
+It remains to prove sharpness. Take $x=(1,1)$. Then
+\[
+Hx=(2,0),
+\]
+and so
+\[
+\frac{\|Hx\|_r}{\|x\|_r}
+=
+\frac{\|(2,0)\|_r}{\|(1,1)\|_r}
+=
+\frac{2}{(1^r+1^r)^{1/r}}
+=
+\frac{2}{2^{1/r}}
+=
+2^{1-1/r}.
+\]
+Thus
+\[
+\|H\|_r\ge 2^{1-1/r}.
+\]
+Combining the upper and lower bounds gives
+\[
+\|H\|_r=2^{1-1/r}.
+\]
 \end{proof}
+\]

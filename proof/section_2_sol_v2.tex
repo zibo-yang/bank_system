@@ -1,111 +1,215 @@
-**Riesz--Thorin interpolation theorem.** Let \((X,\mu)\) and \((Y,\nu)\) be \(\sigma\)-finite measure spaces, and let \(1 \leq p_0,p_1,q_0,q_1 \leq \infty\). For \(0<\theta<1\), define \(p_\theta\) and \(q_\theta\) by
+```latex
+\begin{proof}
+Fix \(r \in [2,\infty)\). Let \(D=\operatorname{diag}(a,b)\) with \(a,b>0\), and set
 \[
-\frac{1}{p_\theta}
+t=\frac{a}{b}>0.
+\]
+Then
+\[
+DHD^{-1}
 =
-\frac{1-\theta}{p_0}
-+
-\frac{\theta}{p_1},
-\qquad
-\frac{1}{q_\theta}
+\begin{pmatrix}
+a & 0\\
+0 & b
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1\\
+1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+a^{-1} & 0\\
+0 & b^{-1}
+\end{pmatrix}
 =
-\frac{1-\theta}{q_0}
-+
-\frac{\theta}{q_1},
+\begin{pmatrix}
+1 & t\\
+t^{-1} & -1
+\end{pmatrix}.
 \]
-with the convention that \(1/\infty=0\). If \(T\) is a linear operator such that
+Denote this matrix by
 \[
-T:L^{p_0}(X)\to L^{q_0}(Y),
-\qquad
-T:L^{p_1}(X)\to L^{q_1}(Y)
+A_t=\begin{pmatrix}
+1 & t\\
+t^{-1} & -1
+\end{pmatrix}.
 \]
-are bounded with
+We prove that
 \[
-\|T\|_{L^{p_0}\to L^{q_0}} \leq M_0,
-\qquad
-\|T\|_{L^{p_1}\to L^{q_1}} \leq M_1,
+\|A_t\|_r \geq 2^{1-1/r}
 \]
-then
-\[
-T:L^{p_\theta}(X)\to L^{q_\theta}(Y)
-\]
-is bounded and
-\[
-\|T\|_{L^{p_\theta}\to L^{q_\theta}}
-\leq
-M_0^{1-\theta}M_1^\theta .
-\]
-This is the standard \(L^p\)-operator norm form of the Riesz--Thorin interpolation theorem. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem))
+for every \(t>0\).
 
-Now regard the matrix \(H\) as a linear operator on \(\ell_p^m=L^p(\{1,\dots,m\})\) with counting measure. We are given that
+We shall use the following elementary fact: for any real numbers \(u,v\),
 \[
-\|H\|_{2\to 2}=\sqrt{m},
-\qquad
-\|H\|_{\infty\to\infty}=m.
+\left(|u|^r+|v|^r\right)^{1/r} \geq |u|
+\quad\text{and}\quad
+\left(|u|^r+|v|^r\right)^{1/r} \geq |v|.
 \]
+Indeed, since \(|u|^r+|v|^r \geq |u|^r\) and the function
+\[
+s \mapsto s^{1/r}
+\]
+is increasing on \([0,\infty)\), we get
+\[
+\left(|u|^r+|v|^r\right)^{1/r} \geq \left(|u|^r\right)^{1/r}=|u|.
+\]
+The proof for the second coordinate is identical.
 
-First consider \(r=2\). Then
+First suppose \(t\geq 1\). Let
 \[
-\|H\|_{2\to 2}
-=
-\sqrt{m}
-=
-m^{1/2}
-=
-m^{1-1/2},
+x=2^{-1/r}\begin{pmatrix}1\\1\end{pmatrix}.
 \]
-so the desired bound holds for \(r=2\).
+Then
+\[
+\|x\|_r
+=
+2^{-1/r}\left(|1|^r+|1|^r\right)^{1/r}
+=
+2^{-1/r}2^{1/r}
+=
+1.
+\]
+Hence, by the definition of the induced operator norm,
+\[
+\|A_t\|_r \geq \|A_t x\|_r.
+\]
+Now
+\[
+A_t x
+=
+2^{-1/r}
+\begin{pmatrix}
+1+t\\
+t^{-1}-1
+\end{pmatrix}.
+\]
+Therefore
+\[
+\|A_t x\|_r
+=
+2^{-1/r}
+\left(|1+t|^r+|t^{-1}-1|^r\right)^{1/r}.
+\]
+By the coordinate domination property of the \(\ell_r\)-norm just proved,
+\[
+\left(|1+t|^r+|t^{-1}-1|^r\right)^{1/r}
+\geq |1+t|.
+\]
+Since \(t\geq 1\), we have \(1+t\geq 2\), so \(|1+t|=1+t\geq 2\). Thus
+\[
+\|A_t x\|_r
+\geq
+2^{-1/r}(1+t)
+\geq
+2^{-1/r}\cdot 2
+=
+2^{1-1/r}.
+\]
+Consequently,
+\[
+\|A_t\|_r \geq 2^{1-1/r}
+\]
+whenever \(t\geq 1\).
 
-Now let \(r>2\). Apply Riesz--Thorin with
+Now suppose \(0<t\leq 1\). Let
 \[
-p_0=q_0=2,
-\qquad
-p_1=q_1=\infty,
-\qquad
-M_0=\sqrt{m},
-\qquad
-M_1=m.
+y=2^{-1/r}\begin{pmatrix}1\\-1\end{pmatrix}.
 \]
-Choose \(\theta\in(0,1)\) by
+Then
 \[
-\frac{1}{r}
+\|y\|_r
 =
-\frac{1-\theta}{2}
-+
-\frac{\theta}{\infty}
+2^{-1/r}\left(|1|^r+|-1|^r\right)^{1/r}
 =
-\frac{1-\theta}{2}.
+2^{-1/r}2^{1/r}
+=
+1.
 \]
-Since \(1/\infty=0\), this gives
+Again, by the definition of the induced operator norm,
 \[
-1-\theta=\frac{2}{r},
-\qquad
-\theta=1-\frac{2}{r}.
+\|A_t\|_r \geq \|A_t y\|_r.
 \]
-Because \(r>2\), indeed \(\theta\in(0,1)\). With this choice,
+We compute
 \[
-p_\theta=q_\theta=r.
-\]
-Therefore Riesz--Thorin gives
-\[
-\|H\|_{r\to r}
-\leq
-\|H\|_{2\to 2}^{1-\theta}
-\|H\|_{\infty\to\infty}^{\theta}
+A_t y
 =
-(\sqrt{m})^{1-\theta}m^\theta.
-\]
-Using \(1-\theta=2/r\) and \(\theta=1-2/r\), we obtain
-\[
-(\sqrt{m})^{1-\theta}m^\theta
-=
-(\sqrt{m})^{2/r}m^{1-2/r}
-=
-m^{1/r}m^{1-2/r}
-=
-m^{1-1/r}.
+2^{-1/r}
+\begin{pmatrix}
+1-t\\
+t^{-1}+1
+\end{pmatrix}.
 \]
 Hence
 \[
-\boxed{\|H\|_{r\to r}\leq m^{1-1/r}}
+\|A_t y\|_r
+=
+2^{-1/r}
+\left(|1-t|^r+|t^{-1}+1|^r\right)^{1/r}.
 \]
-for every real \(r\geq 2\).
+By the coordinate domination property,
+\[
+\left(|1-t|^r+|t^{-1}+1|^r\right)^{1/r}
+\geq |t^{-1}+1|.
+\]
+Since \(0<t\leq 1\), we have \(t^{-1}\geq 1\), and therefore
+\[
+|t^{-1}+1|=t^{-1}+1\geq 2.
+\]
+Thus
+\[
+\|A_t y\|_r
+\geq
+2^{-1/r}(t^{-1}+1)
+\geq
+2^{-1/r}\cdot 2
+=
+2^{1-1/r}.
+\]
+Consequently,
+\[
+\|A_t\|_r \geq 2^{1-1/r}
+\]
+whenever \(0<t\leq 1\).
+
+Combining the two cases, for every \(t>0\),
+\[
+\left\|
+\begin{pmatrix}
+1 & t\\
+t^{-1} & -1
+\end{pmatrix}
+\right\|_r
+\geq
+2^{1-1/r}.
+\]
+Equivalently, for every positive diagonal matrix \(D=\operatorname{diag}(a,b)\),
+\[
+\|DHD^{-1}\|_r \geq 2^{1-1/r}.
+\]
+Taking the infimum over all such \(D\), we obtain
+\[
+\rho_r(H)\geq 2^{1-1/r}.
+\]
+
+For the reverse inequality, choose \(D=I\). Then
+\[
+\rho_r(H)
+\leq
+\|IHI^{-1}\|_r
+=
+\|H\|_r.
+\]
+By the given fact,
+\[
+\|H\|_r=2^{1-1/r}.
+\]
+Therefore
+\[
+\rho_r(H)\leq 2^{1-1/r}.
+\]
+Together with the lower bound, this proves
+\[
+\rho_r(H)=2^{1-1/r}.
+\]
+\end{proof}
+```
