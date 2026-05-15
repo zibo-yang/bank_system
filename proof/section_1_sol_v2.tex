@@ -1,0 +1,316 @@
+\[
+\textbf{Proof.}
+\]
+For clarity, write \(H_m\) for the Sylvester--Hadamard matrix of order \(m=2^k\). Thus \(H_1=(1)\), and for \(m=2n\),
+
+\[
+H_m
+=
+H_{2n}
+=
+\begin{pmatrix}
+H_n & H_n\\
+H_n & -H_n
+\end{pmatrix}.
+\]
+
+We prove the stated properties.
+
+---
+
+### (a) \(H\) is symmetric and has only \(\pm 1\) entries
+
+We prove by induction on \(k\) that \(H_{2^k}\) is symmetric and every entry of \(H_{2^k}\) is equal to \(+1\) or \(-1\).
+
+For \(k=0\), we have \(H_1=(1)\), which is symmetric and has only \(+1\) entries.
+
+Assume now that \(H_n\) is symmetric and has only \(\pm 1\) entries. Consider
+
+\[
+H_{2n}
+=
+\begin{pmatrix}
+H_n & H_n\\
+H_n & -H_n
+\end{pmatrix}.
+\]
+
+Every block \(H_n\) and \(-H_n\) has only \(\pm 1\) entries, so \(H_{2n}\) also has only \(\pm 1\) entries. Moreover, since \(H_n^\top=H_n\), we have
+
+\[
+H_{2n}^\top
+=
+\begin{pmatrix}
+H_n^\top & H_n^\top\\
+H_n^\top & (-H_n)^\top
+\end{pmatrix}
+=
+\begin{pmatrix}
+H_n & H_n\\
+H_n & -H_n
+\end{pmatrix}
+=
+H_{2n}.
+\]
+
+Thus \(H_{2n}\) is symmetric. By induction, \(H_m\) is symmetric and has only \(\pm 1\) entries for every \(m=2^k\).
+
+---
+
+### (b) \(H^\top H=H^2=mI_m\)
+
+Since \(H_m\) is symmetric by part (a), it suffices to prove
+
+\[
+H_m^2=mI_m.
+\]
+
+We prove this by induction on \(m=2^k\).
+
+For \(m=1\),
+
+\[
+H_1^2=(1)^2=(1)=I_1.
+\]
+
+So the claim holds for \(m=1\).
+
+Assume now that for some \(n=2^{k-1}\), we have
+
+\[
+H_n^2=nI_n.
+\]
+
+Let \(m=2n\). Then
+
+\[
+H_{2n}
+=
+\begin{pmatrix}
+H_n & H_n\\
+H_n & -H_n
+\end{pmatrix}.
+\]
+
+Multiplying block matrices gives
+
+\[
+H_{2n}^2
+=
+\begin{pmatrix}
+H_n & H_n\\
+H_n & -H_n
+\end{pmatrix}
+\begin{pmatrix}
+H_n & H_n\\
+H_n & -H_n
+\end{pmatrix}.
+\]
+
+Therefore
+
+\[
+H_{2n}^2
+=
+\begin{pmatrix}
+H_n^2+H_n^2 & H_n^2-H_n^2\\
+H_n^2-H_n^2 & H_n^2+H_n^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+2H_n^2 & 0\\
+0 & 2H_n^2
+\end{pmatrix}.
+\]
+
+Using the induction hypothesis \(H_n^2=nI_n\), we get
+
+\[
+H_{2n}^2
+=
+\begin{pmatrix}
+2nI_n & 0\\
+0 & 2nI_n
+\end{pmatrix}
+=
+2nI_{2n}.
+\]
+
+Since \(m=2n\), this is exactly
+
+\[
+H_m^2=mI_m.
+\]
+
+Thus, by induction,
+
+\[
+H^2=mI_m.
+\]
+
+Finally, since \(H^\top=H\), we have
+
+\[
+H^\top H=H^2=mI_m.
+\]
+
+---
+
+### (c) Operator norms of \(H\)
+
+We compute the three stated operator norms.
+
+#### Spectral norm
+
+The spectral norm satisfies
+
+\[
+\|H\|_{2\to 2}^2
+=
+\lambda_{\max}(H^\top H),
+\]
+
+where \(\lambda_{\max}(H^\top H)\) denotes the largest eigenvalue of the positive semidefinite matrix \(H^\top H\).
+
+From part (b),
+
+\[
+H^\top H=mI_m.
+\]
+
+Every eigenvalue of \(mI_m\) is equal to \(m\). Hence
+
+\[
+\|H\|_{2\to 2}^2=m,
+\]
+
+and therefore
+
+\[
+\|H\|_{2\to 2}=\sqrt{m}.
+\]
+
+#### \(\ell^1\) operator norm
+
+For a matrix \(A=(a_{ij})\), its induced \(\ell^1\) operator norm is
+
+\[
+\|A\|_{1\to 1}
+=
+\max_{1\leq j\leq m}\sum_{i=1}^m |a_{ij}|,
+\]
+
+the maximum absolute column sum.
+
+Since every entry of \(H\) is either \(+1\) or \(-1\), we have
+
+\[
+|H_{ij}|=1
+\]
+
+for every \(i,j\). Therefore each column has absolute column sum
+
+\[
+\sum_{i=1}^m |H_{ij}|
+=
+\sum_{i=1}^m 1
+=
+m.
+\]
+
+Hence
+
+\[
+\|H\|_{1\to 1}=m.
+\]
+
+#### \(\ell^\infty\) operator norm
+
+For a matrix \(A=(a_{ij})\), its induced \(\ell^\infty\) operator norm is
+
+\[
+\|A\|_{\infty\to \infty}
+=
+\max_{1\leq i\leq m}\sum_{j=1}^m |a_{ij}|,
+\]
+
+the maximum absolute row sum.
+
+Again, since \(|H_{ij}|=1\) for all \(i,j\), each row has absolute row sum
+
+\[
+\sum_{j=1}^m |H_{ij}|
+=
+\sum_{j=1}^m 1
+=
+m.
+\]
+
+Thus
+
+\[
+\|H\|_{\infty\to \infty}=m.
+\]
+
+Therefore,
+
+\[
+\boxed{
+\|H\|_{2\to 2}=\sqrt{m},
+\qquad
+\|H\|_{1\to 1}=m,
+\qquad
+\|H\|_{\infty\to \infty}=m.
+}
+\]
+
+---
+
+### (d) \(Hh_i=me_i\)
+
+Let \(h_i\) be the \(i\)th row of \(H\), viewed as a column vector. By definition,
+
+\[
+h_i
+=
+\begin{pmatrix}
+H_{i1}\\
+H_{i2}\\
+\vdots\\
+H_{im}
+\end{pmatrix}.
+\]
+
+This is the \(i\)th column of \(H^\top\), so
+
+\[
+h_i=H^\top e_i.
+\]
+
+Since \(H\) is symmetric, \(H^\top=H\), hence
+
+\[
+h_i=He_i.
+\]
+
+Using part (b), we get
+
+\[
+Hh_i
+=
+H(He_i)
+=
+H^2e_i
+=
+mI_me_i
+=
+me_i.
+\]
+
+Therefore, for every \(i\in\{1,\ldots,m\}\),
+
+\[
+\boxed{Hh_i=me_i.}
+\]
+
+This completes the proof.

@@ -1,0 +1,100 @@
+```latex
+\begin{proof}
+Let $H$ be an $m \times m$ Sylvester--Hadamard matrix with $m = 2^k$ and $k \geq 1$. In particular, $m \geq 2$, so $m > 1$.
+
+\medskip
+
+\noindent\textbf{Part (a).}
+Fix any real number $r \geq 2$. By the upper bound established in Section~2, using $D = I$, we have
+\[
+\rho_r(H) \leq \|H\|_{r \to r} \leq m^{1 - 1/r}.
+\]
+By the lower bound established in Section~3, we also have
+\[
+\rho_r(H) \geq m^{1 - 1/r}.
+\]
+Combining these two inequalities gives
+\[
+m^{1 - 1/r} \leq \rho_r(H) \leq m^{1 - 1/r}.
+\]
+Therefore,
+\[
+\rho_r(H) = m^{1 - 1/r}.
+\]
+Since $r \geq 2$ was arbitrary, this proves that for every real $r \geq 2$,
+\[
+\boxed{\rho_r(H) = m^{1 - 1/r}}.
+\]
+
+\medskip
+
+\noindent\textbf{Part (b).}
+By part (a), for every real $r \geq 2$,
+\[
+\rho_r(H) = m^{1 - 1/r}.
+\]
+We show that the function
+\[
+r \mapsto m^{1 - 1/r}
+\]
+is strictly increasing on $[2,\infty)$.
+
+Let $2 \leq r < s$. Then
+\[
+\frac{1}{r} > \frac{1}{s},
+\]
+and therefore
+\[
+1 - \frac{1}{r} < 1 - \frac{1}{s}.
+\]
+Since $m > 1$, the exponential function $t \mapsto m^t$ is strictly increasing. Hence
+\[
+m^{1 - 1/r} < m^{1 - 1/s}.
+\]
+Using the formula from part (a), this gives
+\[
+\rho_r(H) < \rho_s(H).
+\]
+Thus $r \mapsto \rho_r(H)$ is strictly increasing on $[2,\infty)$.
+
+In particular, for every real $p \geq 2$, we may take $r = p$ and $s = p+1$. Since $p < p+1$, the strict monotonicity gives
+\[
+\rho_p(H) < \rho_{p+1}(H).
+\]
+Equivalently, using the explicit formula,
+\[
+\rho_p(H) = m^{1 - 1/p}
+\]
+and
+\[
+\rho_{p+1}(H) = m^{1 - 1/(p+1)}.
+\]
+Moreover,
+\[
+1 - \frac{1}{p}
+<
+1 - \frac{1}{p+1},
+\]
+because
+\[
+\left(1 - \frac{1}{p+1}\right)
+-
+\left(1 - \frac{1}{p}\right)
+=
+\frac{1}{p} - \frac{1}{p+1}
+=
+\frac{1}{p(p+1)}
+>
+0.
+\]
+Since $m > 1$, it follows again that
+\[
+m^{1 - 1/p} < m^{1 - 1/(p+1)}.
+\]
+Therefore,
+\[
+\boxed{\rho_p(H) < \rho_{p+1}(H)}
+\]
+for every real $p \geq 2$.
+\end{proof}
+```

@@ -1,0 +1,19 @@
+Anchor: global  
+Location: “Since \(H^\top H=mI_m\), every eigenvalue of \(H^\top H\) equals \(m\). Hence \[\|H\|_{2\to 2} = \sqrt{\lambda_{\max}(H^\top H)} = \sqrt{m}.\]”  
+Description: Justification Gap: This uses the spectral-norm characterization \(\|H\|_{2\to2}=\sqrt{\lambda_{\max}(H^\top H)}\), but that theorem/property is not stated or proved.
+
+Anchor: global  
+Location: “Since \(|H_{ij}|=1\) for every \(i,j\), each column has absolute column sum … Hence \(\|H\|_{1\to 1}=m\). … Similarly, each row has absolute row sum … Hence \(\|H\|_{\infty\to \infty}=m\).”  
+Description: Justification Gap: These conclusions rely on the unstated induced-matrix-norm formulas \(\|A\|_{1\to1}=\max_j\sum_i |a_{ij}|\) and \(\|A\|_{\infty\to\infty}=\max_i\sum_j |a_{ij}|\). The \(\ell^\infty\) endpoint is later used in the interpolation argument.
+
+Anchor: global  
+Location: “Define \(T:\mathbb{C}^m\to \mathbb{C}^m\) by \(Tx=Hx\). … Therefore, \(\|H\|_{r\to r}\le m^{1-1/r}\) for every real \(r\ge 2\).”  
+Description: Justification Gap: The interpolation argument is carried out for the complex operator \(T:\mathbb C^m\to\mathbb C^m\), while the problem concerns real matrices and real induced \(\ell^p\)-operator norms. The solution does not explicitly justify why the complex-norm estimate implies the corresponding real-norm estimate.
+
+Anchor: global  
+Location: “From Section~1, for any \(m\times m\) Hadamard matrix \(H\) (with \(HH^\top = mI\)), we have \(H^\top H = mI\) as well, since \(H(H^\top/m) = I\) implies \(H\) is invertible with \(H^{-1} = H^\top/m\), hence \(H^\top H = mI\).”  
+Description: Justification Gap: The implication that a square matrix with a right inverse is invertible, and that the right inverse is also the two-sided inverse, is used but not stated or proved.
+
+Anchor: global  
+Location: “By Theorem~\ref{thm:rho-formula}, \(\rho_q(H) = m^{1-1/q}\) for every \(q \geq 2\).”  
+Description: Justification Gap: Theorem~\(\ref{thm:rho-formula}\) is stated only for Sylvester--Hadamard matrices with \(m=2^k\), but this line is written for an arbitrary \(m\times m\) Hadamard matrix \(H\). The solution does not justify this broader application or explicitly restrict the invocation to the previously constructed Sylvester matrices.

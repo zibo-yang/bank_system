@@ -1,0 +1,21 @@
+**Anchor:** global  
+**Location:** “For the reverse inequality, the unit sphere  
+\[
+\{u\in \R^m:\|u\|_r=1\}
+\]
+is compact, and the function \(u\mapsto \|Au\|_r\) is continuous. Therefore there exists \(u^\ast\in \R^m\) with \(\|u^\ast\|_r=1\) such that  
+\[
+\|Au^\ast\|_r=\|A\|_{r\to r}.
+\]”  
+**Description:** Justification Gap: Compactness and continuity only show that \(u\mapsto \|Au\|_r\) attains a maximum on the unit sphere. The solution does not explicitly justify that this maximum equals the induced operator norm as defined by \(\sup_{x\neq 0}\|Ax\|_r/\|x\|_r\). This requires a homogeneity/normalization argument that is not stated.
+
+**Anchor:** global  
+**Location:** “Since \(HH^{\mathsf T}=mI_m\), the matrix \(H\) is invertible, and  
+\[
+H^{-1}=\frac{1}{m}H^{\mathsf T}.
+\]
+Multiplying by \(H\) on the right gives  
+\[
+H^{\mathsf T}H=mI_m.
+\]”  
+**Description:** Justification Gap: The implication from \(HH^{\mathsf T}=mI_m\) to \(H\) being invertible with inverse \(\frac1mH^{\mathsf T}\) is not explicitly justified. It relies on the unstated fact that a square matrix with a right inverse is invertible, or an equivalent determinant/rank argument. Subsequent use of \(H^{\mathsf T}H=mI_m\) depends on this missing justification.

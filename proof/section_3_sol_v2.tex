@@ -1,0 +1,113 @@
+```latex
+\begin{proof}
+Fix a positive diagonal matrix
+\[
+D=\operatorname{diag}(d_1,\ldots,d_m),
+\qquad d_i>0.
+\]
+Let
+\[
+A:=DHD^{-1}.
+\]
+We will prove that
+\[
+\|A\|_{r\to r}\ge m^{1-1/r}.
+\]
+
+Choose an index \(i^*\in\{1,\ldots,m\}\) such that
+\[
+d_{i^*}=\max_{1\le j\le m} d_j.
+\]
+Let \(h_{i^*}\in\{\pm 1\}^m\) denote the \(i^*\)-th row of \(H\), viewed as a column vector. By the stated property of \(H\), we have
+\[
+Hh_{i^*}=me_{i^*}.
+\]
+Now define the test vector
+\[
+y:=Dh_{i^*}.
+\]
+Since \(D\) is invertible and \(h_{i^*}\neq 0\), we have \(y\neq 0\), so it is a valid vector on which to test the operator norm.
+
+We compute
+\[
+Ay
+=
+DHD^{-1}Dh_{i^*}
+=
+DHh_{i^*}
+=
+D(me_{i^*})
+=
+md_{i^*}e_{i^*}.
+\]
+Therefore
+\[
+\|Ay\|_r
+=
+\|md_{i^*}e_{i^*}\|_r
+=
+md_{i^*}.
+\]
+
+On the other hand, since every entry of \(h_{i^*}\) has absolute value \(1\), we have
+\[
+\|y\|_r
+=
+\|Dh_{i^*}\|_r
+=
+\left(\sum_{j=1}^m |d_j h_{i^*j}|^r\right)^{1/r}
+=
+\left(\sum_{j=1}^m d_j^r\right)^{1/r}.
+\]
+Because \(d_{i^*}=\max_j d_j\), we have \(d_j\le d_{i^*}\) for every \(j\). Hence
+\[
+\sum_{j=1}^m d_j^r
+\le
+\sum_{j=1}^m d_{i^*}^r
+=
+m d_{i^*}^r.
+\]
+Taking \(r\)-th roots gives
+\[
+\|y\|_r
+=
+\left(\sum_{j=1}^m d_j^r\right)^{1/r}
+\le
+m^{1/r}d_{i^*}.
+\]
+
+By the definition of the induced operator norm,
+\[
+\|A\|_{r\to r}
+=
+\sup_{x\neq 0}\frac{\|Ax\|_r}{\|x\|_r}.
+\]
+Since \(y\neq 0\), we may test the supremum at \(y\). Thus
+\[
+\|A\|_{r\to r}
+\ge
+\frac{\|Ay\|_r}{\|y\|_r}
+=
+\frac{md_{i^*}}{\left(\sum_{j=1}^m d_j^r\right)^{1/r}}
+\ge
+\frac{md_{i^*}}{m^{1/r}d_{i^*}}
+=
+m^{1-1/r}.
+\]
+Therefore
+\[
+\|DHD^{-1}\|_{r\to r}\ge m^{1-1/r}.
+\]
+
+Since the positive diagonal matrix \(D\) was arbitrary, every admissible diagonal scaling satisfies the same lower bound. Taking the infimum over all such \(D\), we obtain
+\[
+\rho_r(H)
+=
+\inf_{\substack{D=\operatorname{diag}(d_1,\ldots,d_m)\\ d_i>0}}
+\|DHD^{-1}\|_{r\to r}
+\ge
+m^{1-1/r}.
+\]
+This proves the desired lower bound.
+\end{proof}
+```

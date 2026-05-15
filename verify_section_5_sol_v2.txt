@@ -1,0 +1,62 @@
+Anchor: global  
+Location: `\|Ax_1\|_r \leq \|A\|_{r\to r}\|x_1\|_r \leq \|A\|_{r\to r}\|x\|_r.`  
+Description: Justification Gap. The inequality \(\|x_1\|_r\leq \|x\|_r\) for \(x=(x_1,x_2)\) is used but not explicitly justified.
+
+Anchor: global  
+Location: `Since \(H^{\mathsf T}H=mI_m\),`  
+Description: Justification Gap. Earlier the solution states only \(HH^{\mathsf T}=mI_m\). The implication \(HH^{\mathsf T}=mI_m \Rightarrow H^{\mathsf T}H=mI_m\) for square \(H\) is not justified.
+
+Anchor: global  
+Location: `\[
+\|y\|_2=\|Hx\|_2=\sqrt m\,\|x\|_2
+\leq
+\sqrt m\,m^{\frac12-\frac1q}\|x\|_q
+=
+m^{1-\frac1q}\|x\|_q.
+\]`  
+Description: Justification Gap. The norm comparison \(\|x\|_2\leq m^{1/2-1/q}\|x\|_q\) for \(q\ge2\) is used without being stated as a theorem or proved.
+
+Anchor: global  
+Location: `\[
+|(Hx)_i|\leq \sum_{j=1}^m |x_j|=\|x\|_1
+\leq
+m^{1-\frac1q}\|x\|_q.
+\]`  
+Description: Justification Gap. The inequality \(\|x\|_1\leq m^{1-1/q}\|x\|_q\) is used without proof or an explicit invocation of Hölder's inequality.
+
+Anchor: global  
+Location: `For \(q\geq 2\),
+\[
+\|y\|_q^q
+=
+\sum_{i=1}^m |y_i|^q
+\leq
+\|y\|_\infty^{q-2}\|y\|_2^2.
+\]`  
+Description: Justification Gap. This interpolation-type inequality is asserted without proof. Also, when \(q=2\) and \(y=0\), the expression \(\|y\|_\infty^{q-2}\) involves the unaddressed \(0^0\) case.
+
+Anchor: global  
+Location: `Hadamard matrices of orders \(4\) and \(8\) exist by the Sylvester construction, which recursively defines
+\[
+H_{2t}
+=
+\begin{pmatrix}
+H_t&H_t\\
+H_t&-H_t
+\end{pmatrix}.
+\]
+This standard construction yields Hadamard matrices in every order \(2^k\). ([en.wikipedia.org](https://en.wikipedia.org/wiki/Hadamard_matrix))`  
+Description: Justification Gap. The solution cites Wikipedia and does not prove that the Sylvester recursion preserves the Hadamard property, nor does it establish the cited source as reliable under the stated verification rules.
+
+Anchor: global  
+Location: `choose the \(4\times 4\) Hadamard matrix
+\[
+H_4=
+\begin{pmatrix}
+1&1&1&1\\
+1&-1&1&-1\\
+1&1&-1&-1\\
+1&-1&-1&1
+\end{pmatrix}.
+\]`  
+Description: Justification Gap. The matrix \(H_4\) is asserted to be Hadamard, but the solution does not verify that its entries are \(\pm1\) and that \(H_4H_4^{\mathsf T}=4I_4\).

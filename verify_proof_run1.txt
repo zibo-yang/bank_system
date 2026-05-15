@@ -1,0 +1,7 @@
+Anchor: global  
+Location: “Since \(H^\top H=mI_m\), every eigenvalue of \(H^\top H\) equals \(m\). Hence \(\|H\|_{2\to 2} = \sqrt{\lambda_{\max}(H^\top H)} = \sqrt{m}\). … Since \(|H_{ij}|=1\) for every \(i,j\), each column has absolute column sum … Hence \(\|H\|_{1\to 1}=m\). … Similarly, each row has absolute row sum … Hence \(\|H\|_{\infty\to \infty}=m\).”  
+Description: Justification Gap. The solution uses standard characterizations of induced operator norms—spectral norm via \(\sqrt{\lambda_{\max}(H^\top H)}\), \(\ell^1\)-operator norm via maximum absolute column sum, and \(\ell^\infty\)-operator norm via maximum absolute row sum—without stating these theorems or proving their hypotheses. These endpoint norm values are later used in the interpolation argument, so the upper-bound chain is not fully justified.
+
+Anchor: global  
+Location: “Define \(T:\mathbb{C}^m\to \mathbb{C}^m\) by \(Tx=Hx\). … Applying Riesz--Thorin: \(\|H\|_{r\to r} \le \cdots = m^{1-1/r}\). Therefore, \(\|H\|_{r\to r}\le m^{1-1/r}\) for every real \(r\ge 2\).”  
+Description: Justification Gap. The proof applies Riesz--Thorin to the complex spaces \(\mathbb{C}^m\), while the problem defines \(M\in\mathbb{R}^{n\times n}\) and the induced \(\ell^p\)-operator norm is not explicitly identified as being over complex scalars. The solution does not justify that the complex operator-norm estimate is the relevant estimate for the real \(\rho_p\), or that the real and complex formulations agree or are related in the required direction.

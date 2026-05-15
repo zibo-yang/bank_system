@@ -1,0 +1,7 @@
+Anchor: global  
+Location: "Because \(C\) is a Hadamard core matrix, every entry of \(c_i\) has absolute value \(1\). Thus \(\|x\|_r^r=\sum_{j=1}^7 d_j^r |(c_i)_j|^r=\sum_{j=1}^7 d_j^r\)."  
+Description: Justification Gap — The solution uses the fact that every entry of \(c_i\) has absolute value \(1\), but this property is not stated or established in the provided problem assumptions. The listed assumptions \(C=C^\top\), \(C\mathbf 1=-\mathbf 1\), and \(C^2=8I_7-J_7\) do not by themselves explicitly justify that \(C\) is a Hadamard core matrix or that \(|(c_i)_j|=1\) for all \(j\).
+
+Anchor: global  
+Location: "On the other hand, using the upper bound from the previous subproblem, namely \(\|C\|_{r\to r}\leq \Gamma_r\), and taking the admissible diagonal matrix \(D=I_7\), we get..."  
+Description: Justification Gap — The equality \(\rho_r(C)=\Gamma_r\) relies on an upper bound from a “previous subproblem,” but that result is not stated as an assumption, proved here, or otherwise verified. This is an unstated external/prior result needed to complete the proof of the claimed equality.

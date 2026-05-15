@@ -1,0 +1,24 @@
+**Proof structure: valid.**
+
+If all subproblems are proved as stated, they do fully establish Conjecture 3.
+
+- **Completeness:** The outline constructs an explicit matrix  
+  \[
+  M_n=\operatorname{diag}(H,0_{n-2}),\qquad H=\begin{pmatrix}1&1\\1&-1\end{pmatrix},
+  \]
+  for every \(n>6\), and shows that for every integer \(p>2\),
+  \[
+  \rho_p(M_n)=2^{1-1/p}<2^{1-1/(p+1)}=\rho_{p+1}(M_n).
+  \]
+  This exactly matches the existential claim in Conjecture 3. No cases appear to be missing.
+
+- **Dependencies:** The dependency order is coherent:
+  - Subproblem 1 gives the unscaled norm of \(H\).
+  - Subproblem 2 gives the lower bound for all positive diagonal scalings of \(H\).
+  - Subproblem 3 combines Subproblems 1 and 2 to compute \(\rho_q(H)\).
+  - Subproblem 4 transfers the computation from dimension \(2\) to arbitrary dimension \(n\ge 2\).
+  - Subproblem 5 applies Subproblems 3 and 4 with \(q=p,p+1\) and uses monotonicity of \(2^{1-1/q}\).
+
+- **Relevance:** Each subproblem contributes directly to the final construction. There are no obviously redundant or irrelevant lemmas.
+
+Therefore, the overall proof decomposition is logically sound.

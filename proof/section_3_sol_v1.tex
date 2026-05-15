@@ -1,0 +1,148 @@
+There is a small algebraic typo in the suggested test vector: to obtain  
+\[
+DCD^{-1}x=D(Cc_i),
+\]
+one must take  
+\[
+x=Dc_i,
+\]
+not \(x=D^{-1}c_i\). Indeed, \(D^{-1}(Dc_i)=c_i\).
+
+\[
+\textbf{Proof.}
+\]
+
+Fix an integer \(r\geq 3\), and let  
+\[
+D=\operatorname{diag}(d_1,\dots,d_7)
+\]
+with \(d_j>0\) for all \(j\). Define  
+\[
+A:=DCD^{-1}.
+\]
+Choose an index \(i\) such that  
+\[
+d_i=\max_{1\leq j\leq 7} d_j.
+\]
+Let \(c_i\) be the \(i\)th column of \(C\), and test \(A\) on the nonzero vector  
+\[
+x:=Dc_i.
+\]
+Since \(D^{-1}x=c_i\), we have
+\[
+Ax=DCD^{-1}(Dc_i)=D(Cc_i).
+\]
+By the assumed identity \(Cc_i=8e_i-\mathbf 1\), this gives
+\[
+Ax=D(8e_i-\mathbf 1).
+\]
+The vector \(8e_i-\mathbf 1\) has \(i\)th coordinate \(7\) and all other coordinates equal to \(-1\). Hence
+\[
+(Ax)_i=7d_i,
+\qquad
+(Ax)_j=-d_j \quad (j\neq i).
+\]
+Therefore
+\[
+\|Ax\|_r^r=(7d_i)^r+\sum_{j\neq i}d_j^r.
+\]
+
+Because \(C\) is a Hadamard core matrix, every entry of \(c_i\) has absolute value \(1\). Thus
+\[
+\|x\|_r^r
+=
+\|Dc_i\|_r^r
+=
+\sum_{j=1}^7 d_j^r |(c_i)_j|^r
+=
+\sum_{j=1}^7 d_j^r
+=
+d_i^r+\sum_{j\neq i}d_j^r.
+\]
+
+Set
+\[
+S:=\sum_{j\neq i}\left(\frac{d_j}{d_i}\right)^r.
+\]
+Since \(d_i=\max_j d_j\), we have \(0<d_j/d_i\leq 1\) for every \(j\), so
+\[
+0<S\leq 6.
+\]
+Dividing numerator and denominator by \(d_i^r\), we get
+\[
+\frac{\|Ax\|_r^r}{\|x\|_r^r}
+=
+\frac{7^r+S}{1+S}.
+\]
+Now compare this with \(\Gamma_r^r\). Since
+\[
+\Gamma_r^r=\frac{7^r+6}{7},
+\]
+we compute
+\[
+\frac{7^r+S}{1+S}-\frac{7^r+6}{7}
+=
+\frac{7(7^r+S)-(1+S)(7^r+6)}{7(1+S)}.
+\]
+Simplifying the numerator gives
+\[
+7(7^r+S)-(1+S)(7^r+6)
+=
+(7^r-1)(6-S).
+\]
+Hence
+\[
+\frac{7^r+S}{1+S}-\frac{7^r+6}{7}
+=
+\frac{(7^r-1)(6-S)}{7(1+S)}
+\geq 0,
+\]
+because \(r\geq 3\) implies \(7^r-1>0\), and \(S\leq 6\). Therefore
+\[
+\frac{\|Ax\|_r^r}{\|x\|_r^r}
+\geq
+\frac{7^r+6}{7}
+=
+\Gamma_r^r.
+\]
+Since the operator norm dominates the ratio obtained from any nonzero test vector,
+\[
+\|A\|_{r\to r}^r
+\geq
+\frac{\|Ax\|_r^r}{\|x\|_r^r}
+\geq
+\Gamma_r^r.
+\]
+Taking \(r\)th roots gives
+\[
+\|DCD^{-1}\|_{r\to r}\geq \Gamma_r.
+\]
+
+Since \(D>0\) was arbitrary, we have shown
+\[
+\rho_r(C)
+=
+\inf_{D>0\text{ diagonal}}\|DCD^{-1}\|_{r\to r}
+\geq
+\Gamma_r.
+\]
+On the other hand, using the upper bound from the previous subproblem, namely
+\[
+\|C\|_{r\to r}\leq \Gamma_r,
+\]
+and taking the admissible diagonal matrix \(D=I_7\), we get
+\[
+\rho_r(C)
+\leq
+\|I_7CI_7^{-1}\|_{r\to r}
+=
+\|C\|_{r\to r}
+\leq
+\Gamma_r.
+\]
+Combining the two inequalities yields
+\[
+\rho_r(C)=\Gamma_r.
+\]
+
+Thus diagonal scaling cannot improve the bound.

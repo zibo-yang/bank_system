@@ -1,0 +1,317 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,xcolor}
+\newcommand{\verifierissue}[1]{%
+  \par\noindent\textcolor{red}{\textbf{[Verifier issue:]}\ #1}\par\medskip}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}{Conjecture}
+
+\title{Proof of Conjecture~3: Strict Monotonicity of $\rho_p$ for Hadamard Matrices}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+
+When studying the stability of nonlinear PDE of the form $\partial_t u + A(u)\partial_x u + B(u) = 0$ on $[0, L]$, the following stabilizing quantities arise:
+\[
+\rho_p(M) := \inf\{\|\Delta M \Delta^{-1}\|_p \mid \Delta = \operatorname{diag}(\delta_1, \ldots, \delta_n),\; \delta_i > 0\},
+\]
+where $\|\cdot\|_p$ is the induced $\ell^p$-operator norm.
+
+\begin{conjecture}[Conjecture 3]
+For any $n > 6$, and any $p > 2$ ($n, p \in \mathbb{N}$), there exists $M \in \mathbb{R}^{n \times n}$ such that
+\[
+\rho_p(M) < \rho_{p+1}(M).
+\]
+\end{conjecture}
+
+\section*{Overview of the Proof}
+
+Our strategy is to use \textbf{Sylvester--Hadamard matrices}. For an $m \times m$ Hadamard matrix $H$ satisfying $H^\top H = mI$, we establish the exact formula $\rho_r(H) = m^{1-1/r}$ for all $r \geq 2$ by combining:
+\begin{itemize}
+\item An \textbf{upper bound} via the Riesz--Thorin interpolation theorem (interpolating between the $\ell^2$ and $\ell^\infty$ operator norms);
+\item A matching \textbf{lower bound} via a test-vector argument using the rows of $H$.
+\end{itemize}
+Since $m^{1-1/r}$ is strictly increasing in $r$ (for $m \geq 2$), we get $\rho_p(H) < \rho_{p+1}(H)$ for all $p \geq 2$. Embedding $H$ into larger dimensions via zero-padding completes the proof for all $n > 6$.
+
+\section{The Hadamard Matrix and Its Operator Norms}
+
+For clarity, write $H_m$ for the Sylvester--Hadamard matrix of order $m=2^k$. Thus $H_1=(1)$, and for $m=2n$,
+\[
+H_m = H_{2n} = \begin{pmatrix} H_n & H_n\\ H_n & -H_n \end{pmatrix}.
+\]
+
+We prove the following properties.
+
+\subsection*{(a) $H$ is symmetric and has only $\pm 1$ entries}
+
+We prove by induction on $k$ that $H_{2^k}$ is symmetric and every entry of $H_{2^k}$ is equal to $+1$ or $-1$.
+
+For $k=0$, we have $H_1=(1)$, which is symmetric and has only $+1$ entries.
+
+Assume now that $H_n$ is symmetric and has only $\pm 1$ entries. Consider
+\[
+H_{2n} = \begin{pmatrix} H_n & H_n\\ H_n & -H_n \end{pmatrix}.
+\]
+Every block $H_n$ and $-H_n$ has only $\pm 1$ entries, so $H_{2n}$ also has only $\pm 1$ entries. Moreover, since $H_n^\top=H_n$, we have
+\[
+H_{2n}^\top = \begin{pmatrix} H_n^\top & H_n^\top\\ H_n^\top & (-H_n)^\top \end{pmatrix} = \begin{pmatrix} H_n & H_n\\ H_n & -H_n \end{pmatrix} = H_{2n}.
+\]
+Thus $H_{2n}$ is symmetric. By induction, $H_m$ is symmetric and has only $\pm 1$ entries for every $m=2^k$.
+
+\subsection*{(b) $H^\top H=H^2=mI_m$}
+
+Since $H_m$ is symmetric by part~(a), it suffices to prove $H_m^2=mI_m$.
+
+We prove this by induction on $m=2^k$. For $m=1$, $H_1^2=(1)^2=(1)=I_1$, so the claim holds.
+
+Assume now that for some $n=2^{k-1}$, we have $H_n^2=nI_n$. Let $m=2n$. Then
+\[
+H_{2n}^2 = \begin{pmatrix} H_n & H_n\\ H_n & -H_n \end{pmatrix} \begin{pmatrix} H_n & H_n\\ H_n & -H_n \end{pmatrix} = \begin{pmatrix} 2H_n^2 & 0\\ 0 & 2H_n^2 \end{pmatrix}.
+\]
+Using the induction hypothesis $H_n^2=nI_n$, we get
+\[
+H_{2n}^2 = \begin{pmatrix} 2nI_n & 0\\ 0 & 2nI_n \end{pmatrix} = 2nI_{2n}.
+\]
+Since $m=2n$, this is exactly $H_m^2=mI_m$. Thus by induction $H^2=mI_m$, and since $H^\top=H$, we have $H^\top H=H^2=mI_m$.
+
+\subsection*{(c) Operator norms of $H$}
+
+We use the following well-known characterizations of induced operator norms. For any $A\in\mathbb{R}^{m\times m}$:
+\begin{itemize}
+\item \textbf{Spectral norm:} $\|A\|_{2\to 2} = \sqrt{\lambda_{\max}(A^\top A)}$, where $\lambda_{\max}$ denotes the largest eigenvalue. \textit{Proof:} For any $x\in\mathbb{R}^m$, $\|Ax\|_2^2 = x^\top A^\top A x \leq \lambda_{\max}(A^\top A)\|x\|_2^2$, with equality when $x$ is the corresponding eigenvector.
+\item \textbf{$\ell^1$ norm:} $\|A\|_{1\to 1} = \max_{1\leq j\leq m}\sum_{i=1}^m |a_{ij}|$ (maximum absolute column sum). \textit{Proof:} For $x$ with $\|x\|_1=1$, $\|Ax\|_1 = \sum_i|\sum_j a_{ij}x_j| \leq \sum_i\sum_j|a_{ij}||x_j| = \sum_j|x_j|\sum_i|a_{ij}| \leq \max_j\sum_i|a_{ij}|$, with equality at $x=e_{j^*}$ for the maximizing column $j^*$.
+\item \textbf{$\ell^\infty$ norm:} $\|A\|_{\infty\to\infty} = \max_{1\leq i\leq m}\sum_{j=1}^m |a_{ij}|$ (maximum absolute row sum). \textit{Proof:} For $x$ with $\|x\|_\infty=1$, $|(Ax)_i| = |\sum_j a_{ij}x_j| \leq \sum_j|a_{ij}|$, so $\|Ax\|_\infty \leq \max_i\sum_j|a_{ij}|$, with equality at $x_j = \mathrm{sign}(a_{i^*j})$ for the maximizing row $i^*$.
+\end{itemize}
+
+\paragraph{Spectral norm.}
+Since $H^\top H=mI_m$, the only eigenvalue of $H^\top H$ is $m$ (with multiplicity $m$). By the spectral norm formula,
+\[
+\|H\|_{2\to 2} = \sqrt{\lambda_{\max}(H^\top H)} = \sqrt{m}.
+\]
+
+\paragraph{$\ell^1$ operator norm.}
+Since $|H_{ij}|=1$ for every $i,j$, each column has absolute column sum $\sum_{i=1}^m |H_{ij}| = m$. By the $\ell^1$ norm formula, $\|H\|_{1\to 1}=m$.
+
+\paragraph{$\ell^\infty$ operator norm.}
+Similarly, each row has absolute row sum $\sum_{j=1}^m |H_{ij}| = m$. By the $\ell^\infty$ norm formula, $\|H\|_{\infty\to \infty}=m$.
+
+\subsection*{(d) $Hh_i=me_i$}
+
+Let $h_i$ be the $i$th row of $H$, viewed as a column vector. Since $H$ is symmetric, $h_i = H^\top e_i = He_i$. Using part~(b),
+\[
+Hh_i = H(He_i) = H^2e_i = mI_me_i = me_i. \qedhere
+\]
+
+\section{Upper Bound on $\|H\|_{r \to r}$ via Riesz--Thorin Interpolation}
+
+We use the following standard result.
+
+\begin{theorem}[Riesz--Thorin interpolation theorem]
+Let $(\Omega,\mu)$ be a $\sigma$-finite measure space, and let $1\le p_0,p_1,q_0,q_1\le \infty$. For $0<\theta<1$, define $p_\theta,q_\theta$ by
+\[
+\frac1{p_\theta} = \frac{1-\theta}{p_0} + \frac{\theta}{p_1}, \qquad \frac1{q_\theta} = \frac{1-\theta}{q_0} + \frac{\theta}{q_1},
+\]
+with the convention $1/\infty=0$. Suppose $T:L^{p_0}(\Omega)+L^{p_1}(\Omega)\to L^{q_0}(\Omega)+L^{q_1}(\Omega)$ is linear, and that for $i=0,1$,
+\[
+T\bigl(L^{p_i}(\Omega)\bigr)\subseteq L^{q_i}(\Omega), \qquad \|Tf\|_{q_i}\le M_i\|f\|_{p_i} \quad\text{for all }f\in L^{p_i}(\Omega).
+\]
+Then $T\bigl(L^{p_\theta}(\Omega)\bigr)\subseteq L^{q_\theta}(\Omega)$ and $\|T\|_{L^{p_\theta}\to L^{q_\theta}} \le M_0^{1-\theta}M_1^\theta$.
+\end{theorem}
+
+Let $\Omega=\{1,\dots,m\}$ with counting measure $\mu$. Then $\mu(\Omega)=m<\infty$, so $(\Omega,\mu)$ is $\sigma$-finite, and $L^p(\Omega,\mu)=\ell_p^m$ for every $1\le p\le \infty$.
+
+Define $T:\mathbb{R}^m\to \mathbb{R}^m$ by $Tx=Hx$. Since $L^2(\Omega,\mu;\mathbb{R})+L^\infty(\Omega,\mu;\mathbb{R})=\mathbb{R}^m$ (all $L^p$ spaces coincide on a finite set), $T$ is one linear map on the common domain, and its endpoint actions on $L^2$ and $L^\infty$ are restrictions of the same operator, verifying the compatibility hypothesis. (We note that the Riesz--Thorin theorem applies equally to real-valued function spaces; indeed, the real induced $\ell^p$ operator norm satisfies $\|A\|_{\ell^p(\mathbb{R}^m)\to\ell^p(\mathbb{R}^m)}\leq \|A\|_{\ell^p(\mathbb{C}^m)\to\ell^p(\mathbb{C}^m)}$, so the complex interpolation bound is at least as strong as what we need. In our case, both the upper and lower bounds are achieved by real vectors, so the real and complex norms coincide.)
+
+From Section~1, $\|H\|_{2\to 2}=\sqrt{m}$ and $\|H\|_{\infty\to\infty}=m$. We apply Riesz--Thorin with
+\[
+p_0=q_0=2, \quad p_1=q_1=\infty, \quad M_0=\sqrt{m}, \quad M_1=m.
+\]
+
+For $r=2$, $\|H\|_{2\to 2}=\sqrt{m}=m^{1-1/2}$, and the desired estimate holds.
+
+For $r>2$, choose $\theta=1-2/r$. Since $r>2$, we have $0<\theta<1$. Then
+\[
+\frac{1}{p_\theta} = \frac{1-\theta}{2} + \frac{\theta}{\infty} = \frac{1-\theta}{2} = \frac{1}{r},
+\]
+and similarly $1/q_\theta = 1/r$. So $p_\theta = q_\theta = r$. Applying Riesz--Thorin:
+\[
+\|H\|_{r\to r} \le (\sqrt{m})^{1-\theta} m^\theta = (\sqrt{m})^{2/r} m^{1-2/r} = m^{1/r} m^{1-2/r} = m^{1-1/r}.
+\]
+
+Therefore, $\|H\|_{r\to r}\le m^{1-1/r}$ for every real $r\ge 2$.
+
+\section{Lower Bound: Diagonal Scaling Cannot Reduce $\rho_r(H)$ Below $m^{1-1/r}$}
+
+\begin{proposition}
+For every real $r \geq 2$ and every positive diagonal matrix $D = \operatorname{diag}(d_1, \ldots, d_m)$ with $d_i > 0$:
+\[
+\|D H D^{-1}\|_{r \to r} \geq m^{1-1/r},
+\]
+and hence $\rho_r(H) \geq m^{1-1/r}$.
+\end{proposition}
+
+\begin{proof}
+Fix a positive diagonal matrix $D=\operatorname{diag}(d_1,\ldots,d_m)$ with $d_i>0$. Let $A:=DHD^{-1}$.
+
+Choose an index $i^*\in\{1,\ldots,m\}$ such that $d_{i^*}=\max_{1\le j\le m} d_j$. Let $h_{i^*}\in\{\pm 1\}^m$ denote the $i^*$-th row of $H$, viewed as a column vector. By Section~1(d), $Hh_{i^*}=me_{i^*}$.
+
+Define the test vector $y:=Dh_{i^*}$. Since $D$ is invertible and $h_{i^*}\neq 0$, we have $y\neq 0$.
+
+We compute
+\[
+Ay = DHD^{-1}Dh_{i^*} = DHh_{i^*} = D(me_{i^*}) = md_{i^*}e_{i^*}.
+\]
+Therefore $\|Ay\|_r = md_{i^*}$.
+
+Since every entry of $h_{i^*}$ has absolute value $1$,
+\[
+\|y\|_r = \|Dh_{i^*}\|_r = \left(\sum_{j=1}^m d_j^r\right)^{1/r}.
+\]
+Because $d_j\le d_{i^*}$ for every $j$, we have $\sum_{j=1}^m d_j^r \le m d_{i^*}^r$, so $\|y\|_r \le m^{1/r}d_{i^*}$.
+
+By the definition of the induced operator norm,
+\[
+\|A\|_{r\to r} \ge \frac{\|Ay\|_r}{\|y\|_r} = \frac{md_{i^*}}{\left(\sum_{j=1}^m d_j^r\right)^{1/r}} \ge \frac{md_{i^*}}{m^{1/r}d_{i^*}} = m^{1-1/r}.
+\]
+
+Since the positive diagonal matrix $D$ was arbitrary, taking the infimum over all such $D$ gives
+\[
+\rho_r(H) = \inf_{\substack{D=\operatorname{diag}(d_1,\ldots,d_m)\\ d_i>0}} \|DHD^{-1}\|_{r\to r} \ge m^{1-1/r}. \qedhere
+\]
+\end{proof}
+
+\section{Exact Formula and Strict Monotonicity of $\rho_r(H)$}
+
+\begin{theorem}\label{thm:rho-formula}
+Let $H$ be an $m \times m$ Sylvester--Hadamard matrix with $m = 2^k$ and $k \geq 1$. Then for every real $r \geq 2$:
+\[
+\rho_r(H) = m^{1-1/r}.
+\]
+Moreover, the function $r \mapsto \rho_r(H)$ is strictly increasing on $[2, \infty)$.
+\end{theorem}
+
+\begin{proof}
+\textbf{Part (a).} Fix any real number $r \geq 2$. By the upper bound from Section~2, using $D = I$:
+\[
+\rho_r(H) \leq \|H\|_{r \to r} \leq m^{1 - 1/r}.
+\]
+By the lower bound from Section~3:
+\[
+\rho_r(H) \geq m^{1 - 1/r}.
+\]
+Therefore $\rho_r(H) = m^{1 - 1/r}$.
+
+\medskip
+
+\textbf{Part (b).} Since $k \geq 1$, we have $m \geq 2$, so $m > 1$.
+
+Let $2 \leq r < s$. Then $1/r > 1/s$, so $1 - 1/r < 1 - 1/s$. Since $m > 1$, the exponential function $t \mapsto m^t$ is strictly increasing. Hence
+\[
+\rho_r(H) = m^{1 - 1/r} < m^{1 - 1/s} = \rho_s(H).
+\]
+
+In particular, for every real $p \geq 2$, taking $r = p$ and $s = p+1$:
+\[
+\rho_p(H) = m^{1-1/p} < m^{1-1/(p+1)} = \rho_{p+1}(H),
+\]
+where the strict inequality follows because
+\[
+\left(1 - \frac{1}{p+1}\right) - \left(1 - \frac{1}{p}\right) = \frac{1}{p} - \frac{1}{p+1} = \frac{1}{p(p+1)} > 0. \qedhere
+\]
+\end{proof}
+
+\section{Embedding into Larger Dimensions and Proof of Conjecture~3}
+
+\subsection*{Part (a): Block-diagonal embedding preserves $\rho_r$}
+
+\begin{lemma}\label{lem:block-norm}
+For every $A\in\mathbb{R}^{m\times m}$, every integer $s \geq 0$, and every real $r \geq 1$:
+\[
+\|\operatorname{diag}(A, 0_s)\|_{r\to r} = \|A\|_{r\to r}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $x = (x_1, x_2) \in \mathbb{R}^m \oplus \mathbb{R}^s$. Then $\|x\|_r^r = \|x_1\|_r^r + \|x_2\|_r^r$, so $\|x_1\|_r \leq \|x\|_r$.
+
+\textit{Upper bound:} $\|\operatorname{diag}(A,0_s)x\|_r = \|(Ax_1, 0)\|_r = \|Ax_1\|_r \leq \|A\|_{r\to r}\|x_1\|_r \leq \|A\|_{r\to r}\|x\|_r$. Taking the supremum over $x \neq 0$ gives $\|\operatorname{diag}(A,0_s)\|_{r\to r} \leq \|A\|_{r\to r}$.
+
+\textit{Lower bound:} Since the $\ell^r$-unit sphere in $\mathbb{R}^m$ is compact and $u \mapsto \|Au\|_r$ is continuous, the supremum $\|A\|_{r\to r} = \sup_{\|u\|_r=1}\|Au\|_r$ is attained at some $u^* \in \mathbb{R}^m$. Then
+\[
+\|\operatorname{diag}(A,0_s)\|_{r\to r} \geq \frac{\|(Au^*, 0)\|_r}{\|(u^*, 0)\|_r} = \frac{\|Au^*\|_r}{\|u^*\|_r} = \|A\|_{r\to r}. \qedhere
+\]
+\end{proof}
+
+\begin{proposition}
+For every integer $n \geq m$ and every real $r \geq 1$: $\rho_r(M_n) = \rho_r(H)$, where $M_n = \operatorname{diag}(H, 0_{n-m})$.
+\end{proposition}
+
+\begin{proof}
+Any positive diagonal $D \in \mathbb{R}^{n\times n}$ can be written as $D = \operatorname{diag}(D_1, D_2)$ with $D_1$ and $D_2$ positive diagonal. Then $DM_nD^{-1} = \operatorname{diag}(D_1HD_1^{-1}, 0_{n-m})$. By Lemma~\ref{lem:block-norm}, $\|DM_nD^{-1}\|_{r\to r} = \|D_1HD_1^{-1}\|_{r\to r}$.
+
+As $D$ ranges over all positive diagonal $n\times n$ matrices, $D_1$ ranges over all positive diagonal $m\times m$ matrices (independently of $D_2$). Hence
+\[
+\rho_r(M_n) = \inf_D \|DM_nD^{-1}\|_{r\to r} = \inf_{D_1} \|D_1HD_1^{-1}\|_{r\to r} = \rho_r(H). \qedhere
+\]
+\end{proof}
+
+\subsection*{Part (b): Proof of Conjecture~3}
+
+We use the Sylvester--Hadamard matrices $H_4$ and $H_8$ constructed via the recursion in Section~1. Explicitly,
+\[
+H_4 = \begin{pmatrix} 1&1&1&1\\ 1&-1&1&-1\\ 1&1&-1&-1\\ 1&-1&-1&1 \end{pmatrix}.
+\]
+We verify $H_4 = H_4^\top$ and $H_4^2 = 4I_4$ directly. First, $H_4$ is visibly symmetric. For $H_4^2$: the $(i,i)$-entry of $H_4^2$ equals $\sum_j H_{ij}^2 = 4$ (since each entry is $\pm 1$); and for $i\neq k$, the $(i,k)$-entry equals the inner product of rows $i$ and $k$:
+\begin{align*}
+\text{rows 1,2:}&\quad 1\cdot1+1\cdot(-1)+1\cdot1+1\cdot(-1)=0, \\
+\text{rows 1,3:}&\quad 1\cdot1+1\cdot1+1\cdot(-1)+1\cdot(-1)=0, \\
+\text{rows 1,4:}&\quad 1\cdot1+1\cdot(-1)+1\cdot(-1)+1\cdot1=0, \\
+\text{rows 2,3:}&\quad 1\cdot1+(-1)\cdot1+1\cdot(-1)+(-1)\cdot(-1)=0, \\
+\text{rows 2,4:}&\quad 1\cdot1+(-1)\cdot(-1)+1\cdot(-1)+(-1)\cdot1=0, \\
+\text{rows 3,4:}&\quad 1\cdot1+1\cdot(-1)+(-1)\cdot(-1)+(-1)\cdot1=0.
+\end{align*}
+Hence $H_4^2 = 4I_4$, and since $H_4 = H_4^\top$, also $H_4^\top H_4 = 4I_4$. Thus $H_4$ is the Sylvester--Hadamard matrix of order $4 = 2^2$, and Theorem~\ref{thm:rho-formula} applies to give $\rho_q(H_4) = 4^{1-1/q}$ for every $q \geq 2$.
+
+Next, define $H_8$ via the Sylvester construction:
+\[
+H_8 = \begin{pmatrix} H_4 & H_4 \\ H_4 & -H_4 \end{pmatrix}.
+\]
+By Section~1 (with $k=3$, $m=8$, $n=4$), $H_8$ is the Sylvester--Hadamard matrix of order $8=2^3$, satisfying $H_8 = H_8^\top$ and $H_8^2 = 8I_8$. Theorem~\ref{thm:rho-formula} gives $\rho_q(H_8) = 8^{1-1/q}$ for every $q \geq 2$.
+
+\medskip
+
+Let $n > 6$ and $p > 2$ be integers ($p \geq 3$).
+
+\textbf{Case 1: $n = 7$.} Take $M = \operatorname{diag}(H_4, 0_3) \in \mathbb{R}^{7\times 7}$. By Part~(a), $\rho_p(M) = \rho_p(H_4) = 4^{1-1/p}$ and $\rho_{p+1}(M) = 4^{1-1/(p+1)}$. Since $1-1/p < 1-1/(p+1)$ and $4 > 1$:
+\[
+\rho_p(M) = 4^{1-1/p} < 4^{1-1/(p+1)} = \rho_{p+1}(M).
+\]
+
+\textbf{Case 2: $n \geq 8$.} Take $M = \operatorname{diag}(H_8, 0_{n-8}) \in \mathbb{R}^{n\times n}$ (with the zero block omitted when $n = 8$). By Part~(a), $\rho_p(M) = 8^{1-1/p}$ and $\rho_{p+1}(M) = 8^{1-1/(p+1)}$. Since $8 > 1$:
+\[
+\rho_p(M) = 8^{1-1/p} < 8^{1-1/(p+1)} = \rho_{p+1}(M).
+\]
+
+\medskip
+
+In both cases, for every integer $n > 6$ and every integer $p > 2$, we have exhibited $M \in \mathbb{R}^{n\times n}$ with $\rho_p(M) < \rho_{p+1}(M)$. This proves Conjecture~3. \qed
+
+
+\begin{thebibliography}{9}
+\bibitem{coron2015} J.-M.\ Coron and H.-M.\ Nguyen. \textit{Dissipative boundary conditions for nonlinear 1-D hyperbolic systems: sharp conditions through an approach via time-delay systems.} SIAM J.\ Math.\ Anal., 47(3):2220--2240, 2015.
+
+\bibitem{coron2008} J.-M.\ Coron, G.\ Bastin, and B.\ d'Andr\'ea-Novel. \textit{Dissipative boundary conditions for one-dimensional nonlinear hyperbolic systems.} SIAM J.\ Control Optim., 47(3):1460--1498, 2008.
+
+\bibitem{rump2003} S.\ M.\ Rump. \textit{Optimal scaling for $p$-norms and componentwise distance to singularity.} IMA J.\ Numer.\ Anal., 23(1):1--9, 2003.
+
+\bibitem{rieszthorin} M.\ Riesz. \textit{Sur les maxima des formes bilin\'eaires et sur les fonctionnelles lin\'eaires.} Acta Math., 49:465--497, 1926. (See also G.O.\ Thorin, 1948.)
+\end{thebibliography}
+
+\end{document}

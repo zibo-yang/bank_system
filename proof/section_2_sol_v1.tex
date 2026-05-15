@@ -1,0 +1,156 @@
+The requested upper bound is **false**. In fact, the proposed extremizing “row-sign vectors” are not local maximizers of the \(\ell^r\)-operator ratio. Here is a rigorous perturbation showing that, for every integer \(r\ge 3\), one can get a ratio strictly larger than \(\Gamma_r\).
+
+Fix \(i\in\{1,\dots,7\}\), and let
+
+\[
+c:=C e_i .
+\]
+
+Since \(C=C^\top\), this is also the \(i\)-th row-sign vector. Because \(C\mathbf 1=-\mathbf 1\), the vector \(c\) has sum \(-1\), hence exactly three entries equal to \(+1\) and four entries equal to \(-1\). Also,
+
+\[
+Cc=C^2 e_i=(8I_7-J_7)e_i=8e_i-\mathbf 1 .
+\]
+
+Thus the row-sign vector gives
+
+\[
+\frac{\|Cc\|_r^r}{\|c\|_r^r}
+=
+\frac{7^r+6}{7}
+=
+\Gamma_r^r.
+\]
+
+Now define a perturbation direction
+
+\[
+h:=\frac{7\mathbf 1+c}{24}.
+\]
+
+Equivalently,
+
+\[
+h_j=
+\begin{cases}
+\frac13, & c_j=1,\\[2mm]
+\frac14, & c_j=-1.
+\end{cases}
+\]
+
+Then
+
+\[
+c^\top h
+=
+3\cdot \frac13-4\cdot \frac14
+=
+0,
+\]
+
+so \(h\) is tangent to the \(\ell^r\)-sphere at \(c\) to first order. For \(0<\varepsilon<4\), set
+
+\[
+x_\varepsilon:=c+\varepsilon h.
+\]
+
+The denominator is
+
+\[
+\|x_\varepsilon\|_r^r
+=
+3\left(1+\frac{\varepsilon}{3}\right)^r
++
+4\left(1-\frac{\varepsilon}{4}\right)^r .
+\]
+
+Next compute \(C h\). Using \(C\mathbf 1=-\mathbf 1\) and \(Cc=8e_i-\mathbf 1\),
+
+\[
+C h
+=
+\frac{7C\mathbf 1+Cc}{24}
+=
+\frac{-7\mathbf 1+8e_i-\mathbf 1}{24}
+=
+\frac{e_i-\mathbf 1}{3}.
+\]
+
+Therefore
+
+\[
+Cx_\varepsilon
+=
+Cc+\varepsilon C h
+=
+8e_i-\mathbf 1+\frac{\varepsilon}{3}(e_i-\mathbf 1).
+\]
+
+Its \(i\)-th coordinate is still \(7\), while the other six coordinates are
+
+\[
+-1-\frac{\varepsilon}{3}.
+\]
+
+Hence
+
+\[
+\|Cx_\varepsilon\|_r^r
+=
+7^r+6\left(1+\frac{\varepsilon}{3}\right)^r .
+\]
+
+Define
+
+\[
+R_r(\varepsilon)
+:=
+\frac{\|Cx_\varepsilon\|_r^r}{\|x_\varepsilon\|_r^r}
+=
+\frac{7^r+6\left(1+\frac{\varepsilon}{3}\right)^r}
+{3\left(1+\frac{\varepsilon}{3}\right)^r
++
+4\left(1-\frac{\varepsilon}{4}\right)^r}.
+\]
+
+At \(\varepsilon=0\),
+
+\[
+R_r(0)=\frac{7^r+6}{7}=\Gamma_r^r.
+\]
+
+But differentiating at \(\varepsilon=0\) gives
+
+\[
+R_r'(0)
+=
+\frac{2r}{7}
+>
+0.
+\]
+
+Therefore, for all sufficiently small \(\varepsilon>0\),
+
+\[
+R_r(\varepsilon)>\Gamma_r^r.
+\]
+
+Equivalently,
+
+\[
+\frac{\|Cx_\varepsilon\|_r}{\|x_\varepsilon\|_r}>\Gamma_r.
+\]
+
+Thus
+
+\[
+\|C\|_{r\to r}>\Gamma_r
+\]
+
+for every integer \(r\ge 3\). Consequently, the claimed sharp upper bound
+
+\[
+\|C\|_{r\to r}\le \Gamma_r
+\]
+
+cannot be true, and equality at the row-sign vectors cannot characterize the operator norm.

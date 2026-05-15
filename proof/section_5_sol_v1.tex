@@ -1,0 +1,174 @@
+```latex
+\section{Embedding into Larger Dimensions}
+
+Let $r \geq 3$ be an integer. For a real $k \times k$ matrix $A$, write
+\[
+\|A\|_{r \to r}
+=
+\sup_{x \neq 0} \frac{\|Ax\|_r}{\|x\|_r}
+\]
+for the induced $\ell^r$ operator norm, and define
+\[
+\rho_r(A)
+=
+\inf_{D \in \mathcal{D}_k^+}
+\|DAD^{-1}\|_{r \to r},
+\]
+where $\mathcal{D}_k^+$ denotes the set of all positive diagonal $k \times k$ matrices.
+
+We prove that for every $n \geq 7$,
+\[
+\rho_r(M_n)=\rho_r(C),
+\]
+where
+\[
+M_n=
+\begin{pmatrix}
+C & 0\\
+0 & 0_{n-7}
+\end{pmatrix}.
+\]
+
+First observe that every positive diagonal $n \times n$ matrix $D$ decomposes compatibly with the block structure of $M_n$ as
+\[
+D=
+\begin{pmatrix}
+D_1 & 0\\
+0 & D_2
+\end{pmatrix},
+\]
+where $D_1 \in \mathcal{D}_7^+$ and $D_2 \in \mathcal{D}_{n-7}^+$. When $n=7$, the block $D_2$ is absent and the argument below is interpreted in the evident way.
+
+Since $D$ is block diagonal, we have
+\[
+DM_nD^{-1}
+=
+\begin{pmatrix}
+D_1 & 0\\
+0 & D_2
+\end{pmatrix}
+\begin{pmatrix}
+C & 0\\
+0 & 0_{n-7}
+\end{pmatrix}
+\begin{pmatrix}
+D_1^{-1} & 0\\
+0 & D_2^{-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+D_1 C D_1^{-1} & 0\\
+0 & 0_{n-7}
+\end{pmatrix}.
+\]
+Thus it remains to prove that for every $7 \times 7$ matrix $A$),
+\[
+\left\|
+\begin{pmatrix}
+A & 0\\
+0 & 0_{n-7}
+\end{pmatrix}
+\right\|_{r \to r}
+=
+\|A\|_{r \to r}.
+\]
+
+Let
+\[
+B=
+\begin{pmatrix}
+A & 0\\
+0 & 0_{n-7}
+\end{pmatrix}.
+\]
+For any vector $x \in \mathbb{R}^n$, write $x=(x_1,x_2)$ with $x_1 \in \mathbb{R}^7$ and $x_2 \in \mathbb{R}^{n-7}$. Then
+\[
+Bx=(Ax_1,0).
+\]
+Therefore
+\[
+\|Bx\|_r=\|Ax_1\|_r
+\leq
+\|A\|_{r \to r}\|x_1\|_r.
+\]
+Since
+\[
+\|x_1\|_r \leq \left(\|x_1\|_r^r+\|x_2\|_r^r\right)^{1/r}
+=
+\|x\|_r,
+\]
+we obtain
+\[
+\|Bx\|_r
+\leq
+\|A\|_{r \to r}\|x\|_r.
+\]
+Taking the supremum over all nonzero $x \in \mathbb{R}^n$ gives
+\[
+\|B\|_{r \to r} \leq \|A\|_{r \to r}.
+\]
+
+Conversely, for every nonzero $y \in \mathbb{R}^7$, define $x=(y,0) \in \mathbb{R}^n$. Then
+\[
+Bx=(Ay,0),
+\]
+so
+\[
+\frac{\|Bx\|_r}{\|x\|_r}
+=
+\frac{\|Ay\|_r}{\|y\|_r}.
+\]
+Taking the supremum over all nonzero $y \in \mathbb{R}^7$ gives
+\[
+\|B\|_{r \to r} \geq \|A\|_{r \to r}.
+\]
+Hence
+\[
+\left\|
+\begin{pmatrix}
+A & 0\\
+0 & 0_{n-7}
+\end{pmatrix}
+\right\|_{r \to r}
+=
+\|A\|_{r \to r}.
+\]
+
+Applying this with
+\[
+A=D_1 C D_1^{-1},
+\]
+we get
+\[
+\|DM_nD^{-1}\|_{r \to r}
+=
+\|D_1 C D_1^{-1}\|_{r \to r}.
+\]
+Therefore
+\[
+\rho_r(M_n)
+=
+\inf_{D \in \mathcal{D}_n^+}
+\|DM_nD^{-1}\|_{r \to r}.
+\]
+Using the block decomposition $D=\operatorname{diag}(D_1,D_2)$, this becomes
+\[
+\rho_r(M_n)
+=
+\inf_{\substack{D_1 \in \mathcal{D}_7^+\\ D_2 \in \mathcal{D}_{n-7}^+}}
+\|D_1 C D_1^{-1}\|_{r \to r}.
+\]
+The expression inside the infimum is independent of $D_2$. Since $\mathcal{D}_{n-7}^+$ is nonempty, taking the infimum over $D_2$ has no effect, and hence
+\[
+\rho_r(M_n)
+=
+\inf_{D_1 \in \mathcal{D}_7^+}
+\|D_1 C D_1^{-1}\|_{r \to r}.
+\]
+By definition, the right-hand side is precisely $\rho_r(C)$. Thus
+\[
+\boxed{\rho_r(M_n)=\rho_r(C)}.
+\]
+
+This proves the desired embedding result for every integer $n \geq 7$ and every integer $r \geq 3$.
+```

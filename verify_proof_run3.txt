@@ -1,0 +1,15 @@
+Anchor: global  
+Location: “Since \(H^\top H=mI_m\), every eigenvalue of \(H^\top H\) equals \(m\). Hence \(\|H\|_{2\to 2} = \sqrt{\lambda_{\max}(H^\top H)} = \sqrt{m}\).” / “Since \(|H_{ij}|=1\) for every \(i,j\), each column has absolute column sum … Hence \(\|H\|_{1\to 1}=m\).” / “Similarly, each row has absolute row sum … Hence \(\|H\|_{\infty\to \infty}=m\).”  
+Description: Justification Gap. The solution invokes the spectral-norm formula \(\|H\|_{2\to2}=\sqrt{\lambda_{\max}(H^\top H)}\) and the induced \(\ell^1\)/\(\ell^\infty\) column-sum/row-sum formulas without stating these theorems or proving their hypotheses. The \(\ell^2\) and \(\ell^\infty\) endpoint norms are later essential for the Riesz--Thorin upper bound.
+
+Anchor: global  
+Location: “Define \(T:\mathbb{C}^m\to \mathbb{C}^m\) by \(Tx=Hx\).” … “Therefore, \(\|H\|_{r\to r}\le m^{1-1/r}\) for every real \(r\ge 2\).”  
+Description: Justification Gap. The interpolation argument is carried out on complex spaces \(\mathbb C^m\), while the problem defines \(M\in\mathbb R^{n\times n}\) and does not specify that the induced norms in \(\rho_p\) are complex operator norms. The proof does not justify that the complex operator-norm estimate applies to the real induced norm used in \(\rho_p\), or explicitly redefine \(\rho_p\) over complex scalars.
+
+Anchor: global  
+Location: “A direct computation gives \(H_4H_4^\top = 4I_4\) (each row has squared norm \(4\), and distinct rows have inner product \(0\)).”  
+Description: Justification Gap. The proof asserts the row norm and orthogonality computations for \(H_4\) but does not actually display or justify the computations. Under the stated verification rules, “a direct computation” is not sufficient justification.
+
+Anchor: global  
+Location: “From Section~1, for any \(m\times m\) Hadamard matrix \(H\) (with \(HH^\top = mI\)), we have \(H^\top H = mI\) as well … By Theorem~\ref{thm:rho-formula}, \(\rho_q(H) = m^{1-1/q}\) for every \(q \geq 2\).”  
+Description: Critical Error. Theorem~\ref{thm:rho-formula} is stated only for Sylvester--Hadamard matrices, not for arbitrary Hadamard matrices satisfying \(HH^\top=mI\). The proof does not establish here that the displayed \(H_4\) and the constructed \(H_8\) satisfy the exact hypotheses of Theorem~\ref{thm:rho-formula}, nor does it prove an extension of that theorem to all Hadamard matrices. Thus the application of the theorem is not justified as written.
