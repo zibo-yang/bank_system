@@ -74,7 +74,40 @@ We aim to prove:
 \medskip
 \noindent\textbf{Conjecture 3.} \textit{For any $n > 6$, and any $p > 2$ ($n, p \in \mathbb{N}$) there exists $M \in \mathbb{R}^{n \times n}$ such that $\rho_p(M) < \rho_{p+1}(M)$.}
 
-%% Proof sections will be \input'd below as they are completed.
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+\section*{Proof of Conjecture 3}
+
+The proof proceeds in three steps. We first compute the induced $\ell_r$ operator norm of the $2\times 2$ Hadamard matrix, then show that diagonal scaling cannot reduce it, and finally observe that zero-padding preserves $\rho_r$. These combine to yield an explicit construction.
+
+\input{section_1_hadamard_norm}
+\input{section_2_scaling_invariance}
+\input{section_3_zero_padding}
+
+\subsection*{Step 4: Conclusion --- Proof of Conjecture 3}
+
+\begin{theorem}\label{thm:conj3}
+For any integers $n > 6$ and $p > 2$, there exists $M \in \mathbb{R}^{n \times n}$ such that $\rho_p(M) < \rho_{p+1}(M)$.
+\end{theorem}
+
+\begin{proof}
+Let $H = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ and define $M = H \oplus 0_{n-2} \in \mathbb{R}^{n \times n}$, where $0_{n-2}$ denotes the $(n-2)\times(n-2)$ zero matrix. Since $n > 6$, we have $n-2 \geq 5 \geq 0$, so the construction is valid.
+
+By Lemma~\ref{lem:zero-padding} (with $B=H$, $m=2$, $k=n-2$),
+\[
+\rho_p(M) = \rho_p(H) \quad\text{and}\quad \rho_{p+1}(M) = \rho_{p+1}(H).
+\]
+By Lemma~\ref{lem:rho-hadamard}, since $p \geq 3 > 2$ and $p+1 \geq 4 > 2$,
+\[
+\rho_p(H) = 2^{1-1/p} \quad\text{and}\quad \rho_{p+1}(H) = 2^{1-1/(p+1)}.
+\]
+Since $p < p+1$, we have $\frac{1}{p} > \frac{1}{p+1}$, hence $1 - \frac{1}{p} < 1 - \frac{1}{p+1}$. Because the exponential function $\alpha \mapsto 2^\alpha$ is strictly increasing,
+\[
+\rho_p(M) = 2^{1-1/p} < 2^{1-1/(p+1)} = \rho_{p+1}(M).
+\]
+This completes the proof of Conjecture~3.
+\end{proof}
 
 \begin{thebibliography}{9}
 \bibitem{coron2015} Jean-Michel Coron and Hoai-Minh Nguyen. \textit{Dissipative boundary conditions for nonlinear 1-D hyperbolic systems: sharp conditions through an approach via time-delay systems.} SIAM J.\ Math.\ Anal., 47(3):2220--2240, 2015.
