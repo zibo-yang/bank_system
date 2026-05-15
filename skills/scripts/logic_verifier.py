@@ -8,7 +8,7 @@ from prompts import LOGIC_VERIFIER_PROMPT
 
 def verify_logic(problem, outline):
     import api_oai as api
-    prompt = LOGIC_VERIFIER_PROMPT.replace("{problem}", problem).replace("{outline}", outline)
+    prompt = LOGIC_VERIFIER_PROMPT.format(problem=problem, outline=outline)
     return api.call_llm("", prompt)
 
 
