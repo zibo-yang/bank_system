@@ -1,9 +1,8 @@
 ## Strategy 🎯
-Prove Conjecture 3 using the full Hadamard matrix H (not the core). Riesz-Thorin interpolation gives the exact operator norm ‖H‖_r = m^{1-1/r} for r ≥ 2. A test-vector argument gives the matching lower bound on ρ_r(H). The formula ρ_r(H) = m^{1-1/r} is strictly increasing in r, directly giving ρ_p < ρ_{p+1}. Embed into dimensions n > 6.
+Prove Conjecture 3 by constructing an explicit matrix M = H ⊕ 0_{n-2} where H is the 2×2 Hadamard matrix, showing ρ_r(H) = 2^{1-1/r}, and using the strict monotonicity of this function in r.
 
 ## Plan
-- ✅ **Section 1: Hadamard matrix properties** — *induction on recursive structure*
-- ✅ **Section 2: Riesz-Thorin upper bound** — *interpolation between ℓ² and ℓ∞ norms*
-- ✅ **Section 3: Scaling lower bound** — *test on maximally-weighted row vector*
-- ✅ **Section 4: Exact formula + monotonicity** — *combine bounds, calculus*
-- ✅ **Section 5: Embedding + Conjecture 3** — *block-diagonal extension to n > 6*
+- ✅ **Section 1: Hadamard norm computation** — *direct computation of ‖H‖_r = 2^{1-1/r} via norm comparison + test vector (1,1)*
+- ✅ **Section 2: Diagonal scaling invariance** — *lower bound via coordinate domination on test vectors for all t > 0*
+- ✅ **Section 3: Zero-padding preserves ρ_r** — *block diagonal norm = max of block norms*
+- ✅ **Final assembly** — *Conjecture 3 proved via strict monotonicity of 2^{1-1/p} in p*

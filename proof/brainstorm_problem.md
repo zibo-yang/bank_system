@@ -1,103 +1,45 @@
 ## Overall Insight
 
-This is a finite-dimensional operator-norm and diagonal-scaling problem, mixing matrix analysis with a combinatorial construction. The natural strategy is not to search over arbitrary matrices, but to build a highly symmetric signed matrix whose induced $\ell^p$ norms can be computed sharply and whose diagonal scalings can be controlled.
+This is a finite-dimensional operator-norm optimization problem in linear algebra, not a PDE argument: the PDE context motivates the quantity $\rho_p$, but Conjecture 3 only asks for a matrix whose optimally diagonally scaled induced $\ell_p$ norm is strictly smaller than its optimally scaled induced $\ell_{p+1}$ norm.
 
-The key insight is to use the $7\times 7$ core of an $8\times 8$ Hadamard matrix. Its rows behave like a regular simplex: each row has entries $\pm1$, distinct rows have inner product $-1$, and applying the matrix to one of its own row-sign vectors produces a vector with one large coordinate $7$ and six small coordinates $-1$. This turns the relevant norm into the power mean of $(7,1,\ldots,1)$, whose strict increase in $p$ gives $\rho_p<\rho_{p+1}$. The symmetry also bypasses the main difficulty: arbitrary diagonal scalings are defeated by testing against the row corresponding to the largest scaling weight.
+The key insight is to use a signed $2\times2$ Hadamard block
+$$
+H=\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+$$
+For this block, the induced $\ell_r$ norm is exactly computable for $r\ge2$, and positive diagonal similarity cannot improve it. Then one embeds this $2\times2$ example into any larger dimension by adding a zero block. This bypasses the apparent high-dimensional difficulty: the condition $n>6$ is handled by padding, while the real phenomenon already occurs in dimension $2$ because of sign cancellation.
 
 ## Subproblem Decomposition
 
-### Subproblem 1: Construct the Hadamard core matrix
+### Subproblem 1: Compute the induced $\ell_r$ norm of the Hadamard block
 
-**Statement**: Define
-$$
-C=
-\begin{pmatrix}
--1&1&-1&1&-1&1&-1\\
-1&-1&-1&1&1&-1&-1\\
--1&-1&1&1&-1&-1&1\\
-1&1&1&-1&-1&-1&-1\\
--1&1&-1&-1&1&-1&1\\
-1&-1&-1&-1&-1&1&1\\
--1&-1&1&-1&1&1&-1
-\end{pmatrix};
-$$
-prove that $C=C^\top$, $C\mathbf 1=-\mathbf 1$, and $C^2=8I_7-J_7$, where $\mathbf 1\in\mathbb R^7$ is the all-ones vector and $J_7=\mathbf 1\mathbf 1^\top$.
+**Statement**: Let $H=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ and, for $r\in[2,\infty)$, let $\|A\|_r=\sup_{x\in\mathbb R^2\setminus\{0\}}\frac{\|Ax\|_{\ell_r}}{\|x\|_{\ell_r}}$; prove that $\|H\|_r=2^{1-1/r}$ for every $r\in[2,\infty)$.
 
-**Role**: Establishes the special algebraic identities of the signed $7\times7$ witness matrix that will make both the norm computation and the diagonal-scaling lower bound explicit.
+**Role**: Establishes the exact benchmark value for the unscaled $2\times2$ signed block.
 
-**Approach**: View $C$ as the dephased core of the Sylvester $8\times8$ Hadamard matrix, or verify directly that each row has self-inner-product $7$ and pairwise inner-product $-1$.
-
-**Difficulty**: easy
-
-### Subproblem 2: Prove the sharp unscaled $\ell^r$ operator-norm upper bound
-
-**Statement**: For every integer $r\ge 3$, with $\|\cdot\|_{r\to r}$ denoting the induced operator norm on $(\mathbb R^7,\|\cdot\|_r)$, prove
-$$
-\|C\|_{r\to r}\le \Gamma_r,
-\qquad
-\Gamma_r:=\left(\frac{7^r+6}{7}\right)^{1/r}.
-$$
-
-**Role**: Shows that the identity diagonal scaling already gives a candidate value no larger than $\Gamma_r$, so later it will be enough to prove that no positive diagonal scaling can go below $\Gamma_r$.
-
-**Approach**: Use the high symmetry of the Hadamard core; for integer $r$, analyze the maximization of $\|Cx\|_r^r/\|x\|_r^r$ on the $\ell^r$ unit sphere and show that extremizers are row-sign vectors of $C$.
-
-**Difficulty**: hard
-
-### Subproblem 3: Show diagonal scaling cannot improve the bound
-
-**Statement**: For every integer $r\ge 3$ and every positive diagonal matrix $D=\operatorname{diag}(d_1,\ldots,d_7)$ with $d_i>0$, prove
-$$
-\|DCD^{-1}\|_{r\to r}\ge \Gamma_r,
-$$
-and hence
-$$
-\rho_r(C):=\inf_{D>0\text{ diagonal}}\|DCD^{-1}\|_{r\to r}=\Gamma_r.
-$$
-
-**Role**: Converts the unscaled norm estimate into the exact value of the stabilizing quantity $\rho_r(C)$.
-
-**Approach**: Choose an index $i$ with $d_i=\max_j d_j$ and test $DCD^{-1}$ on the vector $Dc_i$, where $c_i$ is the $i$th row-sign vector of $C$; use $Cc_i=8e_i-\mathbf 1$ from Subproblem 1.
+**Approach**: Use interpolation between $\|H\|_2=\sqrt2$ and $\|H\|_\infty=2$ for the upper bound, and test the vector $(1,1)$ for sharpness.
 
 **Difficulty**: medium
 
-### Subproblem 4: Prove strict monotonicity of the model constants
+### Subproblem 2: Show diagonal scaling does not reduce the Hadamard block norm
 
-**Statement**: For every integer $r\ge 3$, prove
-$$
-\Gamma_r=\left(\frac{7^r+6}{7}\right)^{1/r}
-<
-\left(\frac{7^{r+1}+6}{7}\right)^{1/(r+1)}
-=\Gamma_{r+1}.
-$$
+**Statement**: Let $H=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ and define $\rho_r(H)=\inf\{\|DHD^{-1}\|_r:D=\operatorname{diag}(a,b),\ a,b>0\}$ using the induced $\ell_r$ operator norm; prove that $\rho_r(H)=2^{1-1/r}$ for every $r\in[2,\infty)$.
 
-**Role**: Provides the actual strict inequality $\rho_r(C)<\rho_{r+1}(C)$ once the exact formula for $\rho_r(C)$ is known.
+**Role**: Converts the ordinary norm computation into the desired optimized quantity $\rho_r$.
 
-**Approach**: Recognize $\Gamma_r$ as the power mean of the nonconstant positive vector $(7,1,1,1,1,1,1)$ and apply strict monotonicity of power means.
+**Approach**: Write $DHD^{-1}=\begin{pmatrix}1&t\\ t^{-1}&-1\end{pmatrix}$ with $t=a/b>0$; use normalized test vectors proportional to $(1,1)$ when $t\ge1$ and $(1,-1)$ when $t\le1$ to force the lower bound, then combine with Subproblem 1 at $t=1$.
 
-**Difficulty**: easy
+**Difficulty**: medium
 
-### Subproblem 5: Embed the $7\times7$ witness into every larger dimension
+### Subproblem 3: Prove zero-block padding preserves $\rho_r$
 
-**Statement**: For every integer $n\ge 7$, define
-$$
-M_n=
-\begin{pmatrix}
-C&0\\
-0&0_{n-7}
-\end{pmatrix}\in\mathbb R^{n\times n};
-$$
-prove that for every integer $r\ge 3$,
-$$
-\rho_r(M_n)=\rho_r(C).
-$$
+**Statement**: Let $B\in\mathbb R^{m\times m}$, let $k\in\mathbb N$, let $M=B\oplus 0_k\in\mathbb R^{(m+k)\times(m+k)}$, and define $\rho_r(C)=\inf\{\|DCD^{-1}\|_r:D\text{ is a positive diagonal matrix of matching size}\}$ using induced $\ell_r$ operator norms; prove that $\rho_r(M)=\rho_r(B)$ for every $r\in[1,\infty)$.
 
-**Role**: Extends the $7$-dimensional construction to all dimensions $n>6$.
+**Role**: Allows the $2\times2$ construction to be embedded into every dimension $n>6$.
 
-**Approach**: Use that diagonal scaling preserves the block-diagonal form and that the induced $\ell^r$ norm of a block-diagonal operator is the maximum of the induced norms of its diagonal blocks.
+**Approach**: Observe that every positive diagonal scaling of $B\oplus0_k$ remains block diagonal, and that the induced norm of a block diagonal matrix is the maximum of the induced norms of its blocks.
 
 **Difficulty**: easy
 
 ## Integration Sketch
 
-Subproblem 1 constructs a concrete $7\times7$ signed matrix $C$ with Hadamard-core identities. Subproblem 2 proves the sharp upper bound $\|C\|_{r\to r}\le \Gamma_r$ for every integer $r\ge3$, while Subproblem 3 proves every positive diagonal scaling has norm at least $\Gamma_r$, giving the exact formula $\rho_r(C)=\Gamma_r$. Subproblem 4 shows $\Gamma_r$ is strictly increasing in $r$, so $\rho_p(C)<\rho_{p+1}(C)$ for every integer $p>2$. Finally, Subproblem 5 embeds $C$ as a block of an $n\times n$ matrix without changing any $\rho_r$, yielding for every $n>6$ and every integer $p>2$ a matrix $M_n$ such that $\rho_p(M_n)<\rho_{p+1}(M_n)$.
+For given integers $n>6$ and $p>2$, take $M=H\oplus0_{n-2}\in\mathbb R^{n\times n}$. By Subproblem 3, $\rho_p(M)=\rho_p(H)$ and $\rho_{p+1}(M)=\rho_{p+1}(H)$. By Subproblem 2, these equal $2^{1-1/p}$ and $2^{1-1/(p+1)}$, respectively. Since $1-\frac1p<1-\frac1{p+1}$ and the base $2$ is greater than $1$, one gets $\rho_p(M)<\rho_{p+1}(M)$, proving Conjecture 3.

@@ -1,0 +1,30 @@
+\subsection*{Step 3: Zero-block padding preserves $\rho_r$}
+
+\begin{lemma}\label{lem:zero-padding}
+Let $B \in \mathbb{R}^{m \times m}$, let $k \in \mathbb{N}$, and let $M = B \oplus 0_k \in \mathbb{R}^{(m+k)\times(m+k)}$. Then $\rho_r(M)=\rho_r(B)$ for every $r \in [1,\infty)$.
+\end{lemma}
+
+\begin{proof}
+Let $\mathcal{D}_n$ denote the set of positive diagonal matrices in $\mathbb{R}^{n \times n}$. We first establish a basic fact about induced $\ell_r$ operator norms of block diagonal matrices. If $A \in \mathbb{R}^{p \times p}$ and $C \in \mathbb{R}^{q \times q}$, then for every $r \in [1,\infty)$,
+\[
+\|A \oplus C\|_r=\max\{\|A\|_r,\|C\|_r\}.
+\]
+Indeed, for vectors $x \in \mathbb{R}^p$ and $y \in \mathbb{R}^q$,
+\[
+\|(A \oplus C)(x,y)\|_r^r = \|Ax\|_r^r+\|Cy\|_r^r \le \max\{\|A\|_r,\|C\|_r\}^r\bigl(\|x\|_r^r+\|y\|_r^r\bigr),
+\]
+so $\|A \oplus C\|_r \le \max\{\|A\|_r,\|C\|_r\}$. Conversely, taking $y=0$ gives $\|A \oplus C\|_r \ge \|A\|_r$, and taking $x=0$ gives $\|A \oplus C\|_r \ge \|C\|_r$.
+
+Now let $M=B \oplus 0_k$. Every $D \in \mathcal{D}_{m+k}$ decomposes uniquely as $D=E \oplus F$ where $E \in \mathcal{D}_m$ and $F \in \mathcal{D}_k$. Hence
+\[
+DMD^{-1} = (E \oplus F)(B \oplus 0_k)(E^{-1}\oplus F^{-1}) = (EBE^{-1}) \oplus 0_k.
+\]
+Using the block diagonal norm identity,
+\[
+\|DMD^{-1}\|_r = \max\{\|EBE^{-1}\|_r,\|0_k\|_r\} = \|EBE^{-1}\|_r.
+\]
+Therefore,
+\[
+\rho_r(M) = \inf_{D \in \mathcal{D}_{m+k}} \|DMD^{-1}\|_r = \inf_{E \in \mathcal{D}_m} \|EBE^{-1}\|_r = \rho_r(B). \qedhere
+\]
+\end{proof}

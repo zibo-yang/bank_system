@@ -1,0 +1,45 @@
+\subsection*{Step 1: The induced $\ell_r$ norm of the Hadamard block}
+
+\begin{lemma}\label{lem:hadamard-norm}
+Let $H = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$. For every $r \in [2,\infty)$,
+\[
+\|H\|_r = 2^{1-1/r},
+\]
+where $\|H\|_r = \sup_{x \neq 0} \frac{\|Hx\|_{\ell_r}}{\|x\|_{\ell_r}}$ is the induced $\ell_r$ operator norm.
+\end{lemma}
+
+\begin{proof}
+Fix $r \in [2,\infty)$. We first record the standard norm comparisons on $\mathbb{R}^2$: for every $z=(z_1,z_2)\in\mathbb{R}^2$,
+\[
+\|z\|_r \le \|z\|_2
+\]
+and
+\[
+\|z\|_2 \le 2^{1/2-1/r}\|z\|_r.
+\]
+The first inequality follows from monotonicity of finite-dimensional $\ell_p$ norms when $r\ge 2$. For the second, if $r=2$ it is equality, while if $r>2$, H\"older's inequality gives
+\[
+\|z\|_2^2
+=\sum_{j=1}^2 |z_j|^2
+\le \left(\sum_{j=1}^2 |z_j|^r\right)^{2/r}
+\left(\sum_{j=1}^2 1^{r/(r-2)}\right)^{(r-2)/r}
+=2^{1-2/r}\|z\|_r^2.
+\]
+Taking square roots yields $\|z\|_2 \le 2^{1/2-1/r}\|z\|_r$.
+
+Now let $x=(a,b)\in\mathbb{R}^2$. Then $Hx=(a+b,a-b)$, so
+\[
+\|Hx\|_2^2 = |a+b|^2+|a-b|^2 = 2a^2+2b^2 = 2\|x\|_2^2.
+\]
+Hence $\|Hx\|_2=\sqrt{2}\,\|x\|_2$. Using the norm comparisons above, we obtain
+\[
+\|Hx\|_r \le \|Hx\|_2 = \sqrt{2}\,\|x\|_2 \le \sqrt{2}\,2^{1/2-1/r}\|x\|_r = 2^{1-1/r}\|x\|_r.
+\]
+Therefore $\|H\|_r\le 2^{1-1/r}$.
+
+It remains to prove sharpness. Take $x=(1,1)$. Then $Hx=(2,0)$, and so
+\[
+\frac{\|Hx\|_r}{\|x\|_r} = \frac{\|(2,0)\|_r}{\|(1,1)\|_r} = \frac{2}{2^{1/r}} = 2^{1-1/r}.
+\]
+Thus $\|H\|_r\ge 2^{1-1/r}$. Combining the upper and lower bounds gives $\|H\|_r=2^{1-1/r}$.
+\end{proof}

@@ -1,15 +1,13 @@
 ## Overall Insight
 
-Use the full m×m Sylvester-Hadamard matrix H (not the core). The key identity H^TH = mI makes the Riesz-Thorin interpolation give the EXACT operator norm ‖H‖_r = m^{1-1/r} for r ≥ 2. Combined with a test-vector lower bound on ρ_r(H), this pins down ρ_r(H) = m^{1-1/r}, which is strictly increasing in r.
+This is a finite-dimensional operator-norm optimization problem in linear algebra. The key insight is to use a signed 2×2 Hadamard block H = [[1,1],[1,-1]]. For this block, the induced ℓ_r norm is exactly computable for r≥2, and positive diagonal similarity cannot improve it. Then one embeds this 2×2 example into any larger dimension by adding a zero block.
 
-### Subproblem 1: Hadamard matrix properties
+### Subproblem 1: Compute the induced ℓ_r norm of the Hadamard block
 
-Prove: H = H^T, entries are ±1, H² = mI, ‖H‖_2 = √m, ‖H‖_1 = ‖H‖_∞ = m, and Hh_i = me_i.
+**Statement**: Let H=[[1,1],[1,-1]] and, for r∈[2,∞), let ‖A‖_r = sup_{x≠0} ‖Ax‖_r/‖x‖_r; prove that ‖H‖_r = 2^{1-1/r} for every r∈[2,∞).
 
-**Approach**: Use the recursive definition H_{2n} = [[H_n, H_n], [H_n, -H_n]] and induction on k. For H² = mI: H² = [[H_n, H_n],[H_n, -H_n]]·[[H_n, H_n],[H_n, -H_n]] = [[2H_n², 0],[0, 2H_n²]] = [[2·(m/2)I, 0],[0, 2·(m/2)I]] = mI (by induction). For norms: ‖H‖_2 = √(spectral radius of H²) = √m. ‖H‖_∞ = max row sum of |H| = m (each row has m entries of ±1). ‖H‖_1 = m by the same argument for columns. For Hh_i = me_i: since H² = mI, the columns of H are m times the rows of H⁻¹ = H/m, so Hh_i = H·(H^Te_i) = H²e_i/... actually, h_i = H^Te_i = He_i (since H = H^T). So Hh_i = H(He_i) = H²e_i = me_i.
-
-**Difficulty**: easy
+**Approach**: Use interpolation between ‖H‖_2=√2 and ‖H‖_∞=2 for the upper bound, and test the vector (1,1) for sharpness.
 
 ## Integration Sketch
 
-These properties are the foundation for all subsequent sections.
+For given integers n>6 and p>2, take M=H⊕0_{n-2}. By zero-padding, ρ_p(M)=ρ_p(H) and ρ_{p+1}(M)=ρ_{p+1}(H). These equal 2^{1-1/p} and 2^{1-1/(p+1)}, respectively. Since 1-1/p < 1-1/(p+1), one gets ρ_p(M) < ρ_{p+1}(M).
