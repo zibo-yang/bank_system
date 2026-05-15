@@ -1,77 +1,79 @@
+**Claim.** $\sqrt{7}$ is irrational.
+
+**Proof.** Suppose, for contradiction, that $\sqrt{7}$ is rational. Then there exist integers $a$ and $b$ with $b \neq 0$ such that
+
 \[
-\begin{proof}
-Let $r \in [2,\infty)$ be fixed. We first record the standard norm comparisons on $\mathbb{R}^2$: for every $z=(z_1,z_2)\in\mathbb{R}^2$,
-\[
-\|z\|_r \le \|z\|_2
-\]
-and
-\[
-\|z\|_2 \le 2^{1/2-1/r}\|z\|_r.
-\]
-The first inequality follows from monotonicity of finite-dimensional $\ell_p$ norms when $r\ge 2$. For the second, if $r=2$ it is equality, while if $r>2$, Hölder's inequality gives
-\[
-\|z\|_2^2
-=\sum_{j=1}^2 |z_j|^2
-\le \left(\sum_{j=1}^2 |z_j|^r\right)^{2/r}
-\left(\sum_{j=1}^2 1^{r/(r-2)}\right)^{(r-2)/r}
-=2^{1-2/r}\|z\|_r^2.
-\]
-Taking square roots yields
-\[
-\|z\|_2 \le 2^{1/2-1/r}\|z\|_r.
+\sqrt{7}=\frac{a}{b},
 \]
 
-Now let $x=(a,b)\in\mathbb{R}^2$. Then
+and we may choose $a$ and $b$ so that the fraction is in lowest terms, meaning
+
 \[
-Hx=(a+b,a-b),
-\]
-so
-\[
-\|Hx\|_2^2
-=|a+b|^2+|a-b|^2
-=2a^2+2b^2
-=2\|x\|_2^2.
-\]
-Hence
-\[
-\|Hx\|_2=\sqrt{2}\,\|x\|_2.
-\]
-Using the norm comparisons above, we obtain
-\[
-\|Hx\|_r
-\le \|Hx\|_2
-=\sqrt{2}\,\|x\|_2
-\le \sqrt{2}\,2^{1/2-1/r}\|x\|_r
-=2^{1-1/r}\|x\|_r.
-\]
-Therefore
-\[
-\|H\|_r\le 2^{1-1/r}.
+\gcd(a,b)=1.
 \]
 
-It remains to prove sharpness. Take $x=(1,1)$. Then
+Squaring both sides gives
+
 \[
-Hx=(2,0),
+7=\frac{a^2}{b^2}.
 \]
-and so
+
+Multiplying by $b^2$, we get
+
 \[
-\frac{\|Hx\|_r}{\|x\|_r}
-=
-\frac{\|(2,0)\|_r}{\|(1,1)\|_r}
-=
-\frac{2}{(1^r+1^r)^{1/r}}
-=
-\frac{2}{2^{1/r}}
-=
-2^{1-1/r}.
+a^2=7b^2.
 \]
+
 Thus
+
 \[
-\|H\|_r\ge 2^{1-1/r}.
+7 \mid a^2.
 \]
-Combining the upper and lower bounds gives
+
+Since $7$ is prime, if $7 \mid a^2$, then $7 \mid a$. Therefore, there exists an integer $k$ such that
+
 \[
-\|H\|_r=2^{1-1/r}.
+a=7k.
 \]
-\end{proof}
+
+Substituting this into $a^2=7b^2$, we obtain
+
+\[
+(7k)^2=7b^2.
+\]
+
+Hence
+
+\[
+49k^2=7b^2.
+\]
+
+Dividing by $7$ gives
+
+\[
+7k^2=b^2.
+\]
+
+So
+
+\[
+7 \mid b^2.
+\]
+
+Again, since $7$ is prime, this implies
+
+\[
+7 \mid b.
+\]
+
+Therefore, both $a$ and $b$ are divisible by $7$, contradicting the assumption that
+
+\[
+\gcd(a,b)=1.
+\]
+
+This contradiction shows that $\sqrt{7}$ cannot be rational. Hence,
+
+\[
+\boxed{\sqrt{7}\text{ is irrational}.}
 \]

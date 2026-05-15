@@ -1,60 +1,50 @@
-\begin{proof}
-Suppose, for contradiction, that $\sqrt{7}$ is rational. By definition of rationality, there exist integers $m,n$ with $n\neq 0$ such that
-\[
-\sqrt{7}=\frac{m}{n}.
-\]
-Among all such representations, we may choose one in lowest terms: explicitly, let $g=\gcd(m,n)$, and set
-\[
-a=\frac{m}{g}, \qquad b=\frac{n}{g}.
-\]
-Then $a,b\in \mathbb{Z}$, $b\neq 0$, and
-\[
-\sqrt{7}=\frac{a}{b}.
-\]
-Moreover, $\gcd(a,b)=1$, because if some integer $d>1$ divided both $a$ and $b$, then $dg$ would divide both $m$ and $n$, contradicting the fact that $g=\gcd(m,n)$.
+\begin{theorem}
+$\sqrt{7}$ is irrational.
+\end{theorem}
 
-Now square both sides:
+\begin{proof}
+Suppose, for contradiction, that $\sqrt{7}$ is rational. Then there exist integers $a$ and $b$ with $b \neq 0$ such that
+\[
+\sqrt{7}=\frac{a}{b},
+\]
+and we may choose $a$ and $b$ so that the fraction is in lowest terms, meaning
+\[
+\gcd(a,b)=1.
+\]
+(Such a representation exists because, given any integers $a$ and $b$ with $b \neq 0$, we can divide both by $\gcd(a,b)$ to obtain an equivalent fraction whose numerator and denominator are coprime.)
+
+Squaring both sides gives
 \[
 7=\frac{a^2}{b^2}.
 \]
+
 Multiplying by $b^2$, we get
 \[
-7b^2=a^2.
+a^2=7b^2.
 \]
-Hence $7\mid a^2$.
 
-We now justify the needed divisibility fact: if $7\mid x^2$, then $7\mid x$. Indeed, by the division algorithm, every integer $x$ is congruent modulo $7$ to one of
-\[
-0,\;1,\;2,\;3,\;4,\;5,\;6.
-\]
-The corresponding squares modulo $7$ are
-\[
-0^2\equiv 0,\quad 1^2\equiv 1,\quad 2^2\equiv 4,\quad 3^2\equiv 2,
-\]
-\[
-4^2\equiv 2,\quad 5^2\equiv 4,\quad 6^2\equiv 1 \pmod{7}.
-\]
-Thus the only way $x^2\equiv 0 \pmod{7}$ is if $x\equiv 0 \pmod{7}$, which means $7\mid x$.
-
-Applying this fact to $a$, since $7\mid a^2$, we obtain $7\mid a$. Therefore there exists an integer $k$ such that
+Thus $7 \mid a^2$. Since $7$ is prime, if $7 \mid a^2$, then $7 \mid a$ (by Euclid's lemma: if a prime $p$ divides a product $mn$, then $p \mid m$ or $p \mid n$; here applied with $m = n = a$). Therefore, there exists an integer $k$ such that
 \[
 a=7k.
 \]
-Substituting into $7b^2=a^2$, we get
-\[
-7b^2=(7k)^2=49k^2.
-\]
-Dividing both sides by $7$,
-\[
-b^2=7k^2.
-\]
-Thus $7\mid b^2$. Applying the same divisibility fact again, we conclude that $7\mid b$.
 
-Therefore $7$ divides both $a$ and $b$. Hence $7$ is a common divisor of $a$ and $b$, so
+Substituting this into $a^2=7b^2$, we obtain
 \[
-\gcd(a,b)\ge 7>1,
+(7k)^2=7b^2,
 \]
-contradicting $\gcd(a,b)=1$.
+hence
+\[
+49k^2=7b^2.
+\]
 
-This contradiction shows that $\sqrt{7}$ is not rational. Therefore $\sqrt{7}$ is irrational.
+Dividing by $7$ gives
+\[
+7k^2=b^2.
+\]
+
+So $7 \mid b^2$. Again, since $7$ is prime, Euclid's lemma implies $7 \mid b$.
+
+Therefore, both $a$ and $b$ are divisible by $7$, so $\gcd(a,b) \geq 7$. This contradicts the assumption that $\gcd(a,b)=1$.
+
+This contradiction shows that $\sqrt{7}$ cannot be rational; hence $\sqrt{7}$ is irrational.
 \end{proof}

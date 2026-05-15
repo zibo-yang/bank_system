@@ -8,7 +8,7 @@ from prompts import SOLVER_PROMPT
 
 def generate(problem, model="openai"):
     api = importlib.import_module("api_google" if model == "gemini" else "api_oai")
-    prompt = SOLVER_PROMPT.format(problem=problem)
+    prompt = SOLVER_PROMPT.replace("{problem}", problem)
     return api.call_llm("", prompt)
 
 
