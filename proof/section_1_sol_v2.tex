@@ -1,64 +1,98 @@
-\[
+Here is an improved `section_1_proof.tex` that avoids the unjustified “lowest terms” step by choosing a representation with minimal positive denominator, and explicitly justifies the parity implication.
+
+```latex
 \begin{proof}
-\]
-Suppose, for contradiction, that \(\sqrt{7}\) is rational. By definition of rationality, there exist integers \(m,n\) with \(n\neq 0\) such that
-\[
-\sqrt{7}=\frac{m}{n}.
-\]
-Among all such representations, we may choose one in lowest terms: explicitly, let \(g=\gcd(m,n)\), and set
-\[
-a=\frac{m}{g}, \qquad b=\frac{n}{g}.
-\]
-Then \(a,b\in \mathbb Z\), \(b\neq 0\), and
-\[
-\sqrt{7}=\frac{a}{b}.
-\]
-Moreover, \(\gcd(a,b)=1\), because if some integer \(d>1\) divided both \(a\) and \(b\), then \(dg\) would divide both \(m\) and \(n\), contradicting the fact that \(g=\gcd(m,n)\).
+Recall that an integer \(m\) is even if there exists an integer \(t\) such that
+\(m=2t\).
 
-Now square both sides:
-\[
-7=\frac{a^2}{b^2}.
-\]
-Multiplying by \(b^2\), we get
-\[
-7b^2=a^2.
-\]
-Hence \(7\mid a^2\).
+We first justify the parity fact that will be used twice: if \(n^2\) is even, then
+\(n\) is even.
 
-We now justify the needed divisibility fact. If \(7\mid x^2\), then \(7\mid x\). Indeed, by the division algorithm, every integer \(x\) is congruent modulo \(7\) to one of
+Let \(n\in \mathbb{Z}\). By the division algorithm with divisor \(2\), there exist
+integers \(q\) and \(r\), with \(r\in\{0,1\}\), such that
 \[
-0,1,2,3,4,5,6.
+n=2q+r.
 \]
-The corresponding squares modulo \(7\) are
+If \(n\) is not even, then \(r\neq 0\), since \(r=0\) would give
+\(n=2q\). Hence \(r=1\), so \(n=2q+1\). Then
 \[
-0^2\equiv 0,\quad 1^2\equiv 1,\quad 2^2\equiv 4,\quad 3^2\equiv 2,
+n^2=(2q+1)^2=4q^2+4q+1=2(2q^2+2q)+1.
 \]
+An integer of the form \(2s+1\) is not even: if \(2s+1=2t\) for some
+integer \(t\), then
 \[
-4^2\equiv 2,\quad 5^2\equiv 4,\quad 6^2\equiv 1 \pmod 7.
+1=2(t-s),
 \]
-Thus the only way \(x^2\equiv 0 \pmod 7\) is if \(x\equiv 0 \pmod 7\), which means \(7\mid x\).
+which is impossible for an integer \(t-s\), because no integer multiplied by
+\(2\) equals \(1\). Thus, if \(n\) is not even, then \(n^2\) is not even.
+Therefore, if \(n^2\) is even, then \(n\) must be even; otherwise \(n\) not
+being even would force \(n^2\) not to be even.
 
-Applying this fact to \(a\), since \(7\mid a^2\), we obtain \(7\mid a\). Therefore there exists an integer \(k\) such that
+Now suppose, for the sake of contradiction, that \(\sqrt{2}\) is rational.
+Then there exist integers \(p\) and \(q\), with \(q\neq 0\), such that
 \[
-a=7k.
+\sqrt{2}=\frac{p}{q}.
 \]
-Substituting into \(7b^2=a^2\), we get
+Consider the set
 \[
-7b^2=(7k)^2=49k^2.
+S=\left\{ d\in \mathbb{Z}_{>0} : \text{there exists } c\in\mathbb{Z}
+\text{ such that } \sqrt{2}=\frac{c}{d} \right\}.
 \]
-Dividing both sides by \(7\),
+This set is nonempty: if \(q>0\), then \(q\in S\), while if \(q<0\), then
+\(-q\in S\) because
 \[
-b^2=7k^2.
+\frac{p}{q}=\frac{-p}{-q}.
 \]
-Thus \(7\mid b^2\). Applying the same divisibility fact again, we conclude that \(7\mid b\).
+By the well-ordering principle, since \(S\) is a nonempty subset of the positive
+integers, \(S\) has a least element. Let \(b\) be this least element, and choose
+an integer \(a\) such that
+\[
+\sqrt{2}=\frac{a}{b}.
+\]
+Thus \(b>0\), and \(b\) is minimal among all positive integer denominators of
+representations of \(\sqrt{2}\) as a ratio of integers.
 
-Therefore \(7\) divides both \(a\) and \(b\). Hence \(7\) is a common divisor of \(a\) and \(b\), so
+Squaring both sides gives
 \[
-\gcd(a,b)\ge 7>1,
+2=\frac{a^2}{b^2}.
 \]
-contradicting \(\gcd(a,b)=1\).
-
-This contradiction shows that \(\sqrt{7}\) is not rational. Therefore \(\sqrt{7}\) is irrational.
+Since \(b\neq 0\), multiplying by \(b^2\) yields
 \[
+a^2=2b^2.
+\]
+Thus \(a^2\) is even. By the parity fact proved above, \(a\) is even, so there
+exists an integer \(c\) such that
+\[
+a=2c.
+\]
+Substituting this into \(a^2=2b^2\), we get
+\[
+(2c)^2=2b^2.
+\]
+Hence
+\[
+4c^2=2b^2,
+\]
+and dividing by \(2\) gives
+\[
+2c^2=b^2.
+\]
+Therefore \(b^2\) is even. By the same parity fact, \(b\) is even, so there
+exists an integer \(d\) such that
+\[
+b=2d.
+\]
+Since \(b>0\), we have \(d>0\). Also,
+\[
+\sqrt{2}=\frac{a}{b}=\frac{2c}{2d}=\frac{c}{d}.
+\]
+Thus \(d\in S\). But \(d=b/2\), so
+\[
+0<d<b,
+\]
+contradicting the minimality of \(b\) as the least element of \(S\).
+
+Therefore the assumption that \(\sqrt{2}\) is rational is false. Hence
+\(\sqrt{2}\) is irrational.
 \end{proof}
-\]
+```

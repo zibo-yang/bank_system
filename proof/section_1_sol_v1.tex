@@ -1,79 +1,49 @@
-**Claim.** $\sqrt{7}$ is irrational.
+You can use the following as `section_1_proof.tex`:
 
-**Proof.** Suppose, for contradiction, that $\sqrt{7}$ is rational. Then there exist integers $a$ and $b$ with $b \neq 0$ such that
-
+```latex
+\begin{proof}
+Suppose, for the sake of contradiction, that $\sqrt{2}$ is rational. Then there exist integers $a$ and $b$ with $b \neq 0$ such that
 \[
-\sqrt{7}=\frac{a}{b},
+\sqrt{2} = \frac{a}{b}.
 \]
-
-and we may choose $a$ and $b$ so that the fraction is in lowest terms, meaning
-
-\[
-\gcd(a,b)=1.
-\]
+Among all such representations, choose one with $\gcd(a,b)=1$; that is, assume $\frac{a}{b}$ is written in lowest terms.
 
 Squaring both sides gives
-
 \[
-7=\frac{a^2}{b^2}.
+2 = \frac{a^2}{b^2}.
 \]
-
-Multiplying by $b^2$, we get
-
+Multiplying both sides by $b^2$ yields
 \[
-a^2=7b^2.
+a^2 = 2b^2.
 \]
+Therefore $a^2$ is even.
 
+We now use the following elementary fact: if $n^2$ is even, then $n$ is even. Indeed, the contrapositive is clear: if $n$ is odd, then $n=2k+1$ for some integer $k$, and hence
+\[
+n^2 = (2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1,
+\]
+which is odd. Thus, since $a^2$ is even, $a$ must be even.
+
+Hence there exists an integer $c$ such that
+\[
+a = 2c.
+\]
+Substituting this into $a^2 = 2b^2$, we get
+\[
+(2c)^2 = 2b^2.
+\]
 Thus
-
 \[
-7 \mid a^2.
+4c^2 = 2b^2,
 \]
-
-Since $7$ is prime, if $7 \mid a^2$, then $7 \mid a$. Therefore, there exists an integer $k$ such that
-
+and dividing both sides by $2$ gives
 \[
-a=7k.
+2c^2 = b^2.
 \]
+Therefore $b^2$ is even. By the same elementary fact, $b$ is even.
 
-Substituting this into $a^2=7b^2$, we obtain
+We have shown that both $a$ and $b$ are even, so $2$ divides both $a$ and $b$. This contradicts the assumption that $\gcd(a,b)=1$.
 
-\[
-(7k)^2=7b^2.
-\]
-
-Hence
-
-\[
-49k^2=7b^2.
-\]
-
-Dividing by $7$ gives
-
-\[
-7k^2=b^2.
-\]
-
-So
-
-\[
-7 \mid b^2.
-\]
-
-Again, since $7$ is prime, this implies
-
-\[
-7 \mid b.
-\]
-
-Therefore, both $a$ and $b$ are divisible by $7$, contradicting the assumption that
-
-\[
-\gcd(a,b)=1.
-\]
-
-This contradiction shows that $\sqrt{7}$ cannot be rational. Hence,
-
-\[
-\boxed{\sqrt{7}\text{ is irrational}.}
-\]
+Therefore our original supposition was false. Hence $\sqrt{2}$ is irrational.
+\end{proof}
+```

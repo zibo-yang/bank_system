@@ -1,0 +1,22 @@
+ISSUES_FOUND: count=2, mode=standard
+
+Solution: proof/section_1_sol_v1.tex
+Problem:  proof/problem.tex
+
+Issues flagged by verifier:
+
+1. [Justification Gap] Location: "Among all such representations, choose one with gcd(a,b)=1; that is, assume a/b is written in lowest terms."
+   The proof assumes without justification that any rational representation can be reduced to lowest terms. The existence of a lowest-term representation (via dividing by gcd) is invoked but never established.
+
+2. [Justification Gap] Location: "We now use the following elementary fact: if n^2 is even, then n is even. Indeed, the contrapositive is clear..."
+   The contrapositive argument relies on two unstated claims: (a) the equivalence between "not even" and "odd" for integers, and (b) the logical equivalence between a conditional and its contrapositive. The proof shows odd => odd square, but does not explicitly connect this as the contrapositive of even square => even.
+
+--- Full verifier output appended below ---
+
+Anchor: global
+Location: "Among all such representations, choose one with $\gcd(a,b)=1$; that is, assume $\frac{a}{b}$ is written in lowest terms."
+Description: Justification Gap. The solution does not justify that a rational representation of $\sqrt{2}$ can be chosen in lowest terms. This relies on an unstated result about reducing integer fractions by their greatest common divisor / existence of lowest-term representations.
+
+Anchor: global
+Location: "We now use the following elementary fact: if $n^2$ is even, then $n$ is even. Indeed, the contrapositive is clear: if $n$ is odd, then $n=2k+1$ for some integer $k$..."
+Description: Justification Gap. The proof of the "elementary fact" relies on the unstated equivalence between "not even" and "odd" for integers, and on the logical equivalence between a statement and its contrapositive. The argument shows that odd integers square to odd integers, but it does not explicitly establish that this is the contrapositive of the desired implication.
