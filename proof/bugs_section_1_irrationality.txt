@@ -1,0 +1,20 @@
+Pessimistic verification report for proof/section_1_irrationality.tex
+=====================================================================
+
+Mode: pessimistic (3 independent verifier runs)
+Problem: proof/problem.tex
+Solution: proof/section_1_irrationality.tex
+
+Result: CLEAN
+
+All three verifier runs independently returned "The solution is correct."
+No critical errors, no justification gaps, no exposition issues flagged.
+
+--- Appendix: Run 1 output ---
+The solution is correct.
+
+--- Appendix: Run 2 output ---
+The solution is correct.
+
+--- Appendix: Run 3 output ---
+The solution is correct.
