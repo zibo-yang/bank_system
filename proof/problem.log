@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.5)  15 MAY 2026 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.5)  15 MAY 2026 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -137,145 +137,106 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
 (./_macros.tex)
-\c@theorem=\count295
-\c@conjecture=\count296
-
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
 ef
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count297
+\l__color_backend_stack_int=\count295
 ) (./problem.aux)
 \openout1 = `problem.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count298
+\scratchcounter=\count296
 \scratchdimen=\dimen158
 \scratchbox=\box55
-\nofMPsegments=\count299
-\nofMParguments=\count300
+\nofMPsegments=\count297
+\nofMParguments=\count298
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count301
+\MPscratchCnt=\count299
 \MPscratchDim=\dimen159
-\MPnumerator=\count302
-\makeMPintoPDFobject=\count303
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
 \everyMPtoPDFconversion=\toks29
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
  (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (7.51855pt too wide) in paragraph at lines 34--35
-\OT1/cmr/m/n/10 Our strat-egy is to use \OT1/cmr/bx/n/10 Sylvester--Hadamard ma
--tri-ces\OT1/cmr/m/n/10 . For an $\OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 ^^B \OML/
-cmm/m/it/10 m$ \OT1/cmr/m/n/10 Hadamard
- []
 
-(./section_1_hadamard_core.tex
-Overfull \hbox (8.56305pt too wide) in paragraph at lines 1--1
-[]\OT1/cmr/bx/n/14.4 The Hadamard Ma-trix and Its Op-er-a-tor Norms 
- []
+! LaTeX Error: Environment theorem undefined.
 
-[1
-
-{/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.9445pt too wide) in paragraph at lines 46--47
-[]\OT1/cmr/bx/n/10 Spectral norm: $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 A\OMS/cms
-y/m/n/10 k[] \OT1/cmr/m/n/10 = []$, where $\OML/cmm/m/it/10 ^^U[]$ \OT1/cmr/m/n
-/10 de-notes the largest
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \begin{theorem}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 
-Overfull \hbox (2.58546pt too wide) in paragraph at lines 46--47
-\OT1/cmr/m/n/10 eigen-value. \OT1/cmr/m/it/10 Proof: \OT1/cmr/m/n/10 For any $\
-OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R[]$\OT1/cmr/m/n/10 , $\OMS/
-cmsy/m/n/10 k\OML/cmm/m/it/10 Ax\OMS/cmsy/m/n/10 k[] \OT1/cmr/m/n/10 = \OML/cmm
-/m/it/10 x[]A[]Ax \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\
-OML/cmm/m/it/10 A[]A\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 x\OMS/c
-msy/m/n/10 k[]$\OT1/cmr/m/n/10 ,
- []
+! LaTeX Error: \begin{document} ended by \end{theorem}.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 \end{theorem}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
-Overfull \hbox (21.31902pt too wide) in paragraph at lines 47--48
-\OT1/cmr/m/n/10 sum). \OT1/cmr/m/it/10 Proof: \OT1/cmr/m/n/10 For $\OML/cmm/m/i
-t/10 x$ \OT1/cmr/m/n/10 with $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 x\OMS/cmsy/m/n
-/10 k[] \OT1/cmr/m/n/10 = 1$, $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 Ax\OMS/cmsy/m
-/n/10 k[] \OT1/cmr/m/n/10 = [][] \OMS/cmsy/m/n/10 j [][] \OML/cmm/m/it/10 a[]x[
-]\OMS/cmsy/m/n/10 j ^^T [][] [][] j\OML/cmm/m/it/10 a[]\OMS/cmsy/m/n/10 jj\OML/
-cmm/m/it/10 x[]\OMS/cmsy/m/n/10 j \OT1/cmr/m/n/10 =
- []
+(./section_1_irrationality.tex [1
 
-[2]) (./section_2_norm_upper_bound.tex [3])
-(./section_3_scaling_lower_bound.tex [4]) (./section_4_monotonicity.tex
-Overfull \hbox (9.1645pt too wide) in paragraph at lines 1--1
-[]\OT1/cmr/bx/n/14.4 Exact For-mula and Strict Mono-tonic-ity of $\OML/cmm/m/it
-/14.4 ^^Z[]\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 H\OT1/cmr/m/n/14.4 )$ 
- []
-
-) (./section_5_embedding.tex [5] [6]) [7] [8] (./problem.aux)
+{/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [
+2] (./problem.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2851 strings out of 469006
- 40737 string characters out of 5454814
- 454449 words of memory out of 5000000
- 31534 multiletter control sequences out of 15000+600000
- 639457 words of font info for 85 fonts, out of 8000000 for 9000
+ 2727 strings out of 469006
+ 38271 string characters out of 5454814
+ 447227 words of memory out of 5000000
+ 31434 multiletter control sequences out of 15000+600000
+ 630371 words of font info for 51 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 56i,10n,65p,863b,236s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/avalon/Library/texlive/2026basic/texmf-var/fonts/pk/ljfour/jknappen/
-ec/tcrm1000.600pk></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026basic/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026basic/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2026basic/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026basic/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026basic/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026basic
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026ba
-sic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/202
-6basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2
-026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
-/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/loca
-l/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/l
-ocal/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
-r/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-</usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-bm10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/s
-ymbols/msbm7.pfb>
-Output written on problem.pdf (8 pages, 257394 bytes).
+ 56i,6n,65p,228b,214s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on problem.pdf (2 pages, 74128 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 46 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

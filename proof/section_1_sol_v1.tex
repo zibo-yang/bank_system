@@ -1,152 +1,29 @@
-```latex
+\begin{proof}
+Suppose, for contradiction, that $\sqrt{7}$ is rational. Then there exist integers $a$ and $b$ such that $b \neq 0$, $\gcd(a,b)=1$, and
 \[
-H_2=\begin{pmatrix}1&1\\[2pt]1&-1\end{pmatrix},\qquad
-H_{2n}=\begin{pmatrix}H_n&H_n\\[2pt]H_n&-H_n\end{pmatrix}.
+\sqrt{7}=\frac{a}{b}.
 \]
-Then
+Squaring both sides gives
 \[
-H_8=
-\begin{pmatrix}
-1&1&1&1&1&1&1&1\\
-1&-1&1&-1&1&-1&1&-1\\
-1&1&-1&-1&1&1&-1&-1\\
-1&-1&-1&1&1&-1&-1&1\\
-1&1&1&1&-1&-1&-1&-1\\
-1&-1&1&-1&-1&1&-1&1\\
-1&1&-1&-1&-1&-1&1&1\\
-1&-1&-1&1&-1&1&1&-1
-\end{pmatrix}.
+7=\frac{a^2}{b^2},
 \]
-With the given matrix \(C\), this matrix has the block form
+so
 \[
-H_8=
-\begin{pmatrix}
-1&\mathbf{1}^{\top}\\[2pt]
-\mathbf{1}&C
-\end{pmatrix},
+7b^2=a^2.
 \]
-where \(\mathbf{1}\in\mathbb{R}^7\) is the all-ones column vector.
+Thus $7 \mid a^2$. Since $7$ is prime, it follows that $7 \mid a$. Hence there exists an integer $k$ such that
+\[
+a=7k.
+\]
+Substituting this into $7b^2=a^2$ gives
+\[
+7b^2=(7k)^2=49k^2.
+\]
+Dividing by $7$, we obtain
+\[
+b^2=7k^2.
+\]
+Therefore $7 \mid b^2$, and since $7$ is prime, $7 \mid b$.
 
-First we prove the two facts about \(H_8\) that we need. Since \(H_2=H_2^\top\), and since
-\[
-\begin{pmatrix}A&A\\ A&-A\end{pmatrix}^{\top}
-=
-\begin{pmatrix}A^\top&A^\top\\ A^\top&-A^\top\end{pmatrix},
-\]
-the recursion shows inductively that \(H_4\) and \(H_8\) are symmetric. Hence
-\[
-H_8=H_8^\top.
-\]
-In particular, the lower-right principal block \(C\) is symmetric, so
-\[
-C=C^\top.
-\]
-
-Next, we prove the orthogonality identity \(H_8H_8^\top=8I_8\). We have
-\[
-H_2H_2^\top
-=
-\begin{pmatrix}1&1\\ 1&-1\end{pmatrix}
-\begin{pmatrix}1&1\\ 1&-1\end{pmatrix}
-=
-\begin{pmatrix}2&0\\ 0&2\end{pmatrix}
-=
-2I_2.
-\]
-Now suppose \(AA^\top=nI_n\), and define
-\[
-K=\begin{pmatrix}A&A\\ A&-A\end{pmatrix}.
-\]
-Then
-\[
-KK^\top
-=
-\begin{pmatrix}A&A\\ A&-A\end{pmatrix}
-\begin{pmatrix}A^\top&A^\top\\ A^\top&-A^\top\end{pmatrix}
-=
-\begin{pmatrix}
-AA^\top+AA^\top & AA^\top-AA^\top\\[2pt]
-AA^\top-AA^\top & AA^\top+AA^\top
-\end{pmatrix}
-=
-\begin{pmatrix}
-2nI_n&0\\
-0&2nI_n
-\end{pmatrix}
-=
-2nI_{2n}.
-\]
-Applying this first to \(H_2\) and then to \(H_4\), we obtain
-\[
-H_8H_8^\top=8I_8.
-\]
-
-Now use the block decomposition
-\[
-H_8=
-\begin{pmatrix}
-1&\mathbf{1}^{\top}\\[2pt]
-\mathbf{1}&C
-\end{pmatrix}.
-\]
-Multiplying by its transpose gives
-\[
-H_8H_8^\top
-=
-\begin{pmatrix}
-1&\mathbf{1}^{\top}\\[2pt]
-\mathbf{1}&C
-\end{pmatrix}
-\begin{pmatrix}
-1&\mathbf{1}^{\top}\\[2pt]
-\mathbf{1}&C^\top
-\end{pmatrix}
-=
-\begin{pmatrix}
-1+\mathbf{1}^\top\mathbf{1} & \mathbf{1}^\top+\mathbf{1}^\top C^\top\\[2pt]
-\mathbf{1}+C\mathbf{1} & \mathbf{1}\mathbf{1}^\top+CC^\top
-\end{pmatrix}.
-\]
-Since \(\mathbf{1}^\top\mathbf{1}=7\), the upper-left entry is \(8\), as required. Comparing the lower-left block with the lower-left block of \(8I_8\), we get
-\[
-\mathbf{1}+C\mathbf{1}=0.
-\]
-Therefore
-\[
-C\mathbf{1}=-\mathbf{1}.
-\]
-
-Comparing the lower-right block with the lower-right block of \(8I_8\), we get
-\[
-\mathbf{1}\mathbf{1}^{\top}+CC^\top=8I_7.
-\]
-Since \(J_7=\mathbf{1}\mathbf{1}^\top\) and \(C=C^\top\), this becomes
-\[
-J_7+C^2=8I_7.
-\]
-Hence
-\[
-C^2=8I_7-J_7.
-\]
-
-Finally, let \(c_i\in\mathbb{R}^7\) be the \(i\)-th column of \(C\). Then
-\[
-c_i=Ce_i.
-\]
-Using \(C^2=8I_7-J_7\), we obtain
-\[
-Cc_i=C(Ce_i)=C^2e_i=(8I_7-J_7)e_i.
-\]
-Since
-\[
-J_7e_i=\mathbf{1}\mathbf{1}^\top e_i=\mathbf{1},
-\]
-it follows that
-\[
-Cc_i=8e_i-\mathbf{1}.
-\]
-Thus, for every \(i\in\{1,\dots,7\}\),
-\[
-Cc_i=8e_i-\mathbf{1}.
-\]
-```
+Thus $7$ divides both $a$ and $b$, contradicting the assumption that $\gcd(a,b)=1$. Therefore $\sqrt{7}$ is irrational.
+\end{proof}

@@ -1,0 +1,60 @@
+\begin{proof}
+Suppose, for contradiction, that $\sqrt{7}$ is rational. By definition of rationality, there exist integers $m,n$ with $n\neq 0$ such that
+\[
+\sqrt{7}=\frac{m}{n}.
+\]
+Among all such representations, we may choose one in lowest terms: explicitly, let $g=\gcd(m,n)$, and set
+\[
+a=\frac{m}{g}, \qquad b=\frac{n}{g}.
+\]
+Then $a,b\in \mathbb{Z}$, $b\neq 0$, and
+\[
+\sqrt{7}=\frac{a}{b}.
+\]
+Moreover, $\gcd(a,b)=1$, because if some integer $d>1$ divided both $a$ and $b$, then $dg$ would divide both $m$ and $n$, contradicting the fact that $g=\gcd(m,n)$.
+
+Now square both sides:
+\[
+7=\frac{a^2}{b^2}.
+\]
+Multiplying by $b^2$, we get
+\[
+7b^2=a^2.
+\]
+Hence $7\mid a^2$.
+
+We now justify the needed divisibility fact: if $7\mid x^2$, then $7\mid x$. Indeed, by the division algorithm, every integer $x$ is congruent modulo $7$ to one of
+\[
+0,\;1,\;2,\;3,\;4,\;5,\;6.
+\]
+The corresponding squares modulo $7$ are
+\[
+0^2\equiv 0,\quad 1^2\equiv 1,\quad 2^2\equiv 4,\quad 3^2\equiv 2,
+\]
+\[
+4^2\equiv 2,\quad 5^2\equiv 4,\quad 6^2\equiv 1 \pmod{7}.
+\]
+Thus the only way $x^2\equiv 0 \pmod{7}$ is if $x\equiv 0 \pmod{7}$, which means $7\mid x$.
+
+Applying this fact to $a$, since $7\mid a^2$, we obtain $7\mid a$. Therefore there exists an integer $k$ such that
+\[
+a=7k.
+\]
+Substituting into $7b^2=a^2$, we get
+\[
+7b^2=(7k)^2=49k^2.
+\]
+Dividing both sides by $7$,
+\[
+b^2=7k^2.
+\]
+Thus $7\mid b^2$. Applying the same divisibility fact again, we conclude that $7\mid b$.
+
+Therefore $7$ divides both $a$ and $b$. Hence $7$ is a common divisor of $a$ and $b$, so
+\[
+\gcd(a,b)\ge 7>1,
+\]
+contradicting $\gcd(a,b)=1$.
+
+This contradiction shows that $\sqrt{7}$ is not rational. Therefore $\sqrt{7}$ is irrational.
+\end{proof}
