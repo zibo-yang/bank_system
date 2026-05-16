@@ -1,3 +1,0 @@
-**Anchor:** Theorem 1  
-**Location:** “\(1=2(t-s)\), which is impossible for an integer \(t-s\), because no integer multiplied by \(2\) equals \(1\).”  
-**Description:** Justification Gap: The proof asserts that no integer \(k\) satisfies \(2k=1\), but this integer-order/divisibility fact is not justified or derived from an earlier stated property. This assertion is used to prove the parity implication, so the parity fact is not fully established under the stated rules.

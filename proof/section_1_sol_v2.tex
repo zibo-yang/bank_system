@@ -1,98 +1,138 @@
-Here is an improved `section_1_proof.tex` that avoids the unjustified “lowest terms” step by choosing a representation with minimal positive denominator, and explicitly justifies the parity implication.
+The reported gap is valid: the reduced-form representation should be justified. Here is a self-contained proof.
 
-```latex
-\begin{proof}
-Recall that an integer \(m\) is even if there exists an integer \(t\) such that
-\(m=2t\).
+**Proof.** We first justify the “lowest terms” step.
 
-We first justify the parity fact that will be used twice: if \(n^2\) is even, then
-\(n\) is even.
+**Lemma 1.** If \(x\in \mathbb{Q}\), then \(x=\frac{p}{q}\) for some integers \(p,q\) with \(q>0\), such that no integer \(d>1\) divides both \(p\) and \(q\).
 
-Let \(n\in \mathbb{Z}\). By the division algorithm with divisor \(2\), there exist
-integers \(q\) and \(r\), with \(r\in\{0,1\}\), such that
-\[
-n=2q+r.
-\]
-If \(n\) is not even, then \(r\neq 0\), since \(r=0\) would give
-\(n=2q\). Hence \(r=1\), so \(n=2q+1\). Then
-\[
-n^2=(2q+1)^2=4q^2+4q+1=2(2q^2+2q)+1.
-\]
-An integer of the form \(2s+1\) is not even: if \(2s+1=2t\) for some
-integer \(t\), then
-\[
-1=2(t-s),
-\]
-which is impossible for an integer \(t-s\), because no integer multiplied by
-\(2\) equals \(1\). Thus, if \(n\) is not even, then \(n^2\) is not even.
-Therefore, if \(n^2\) is even, then \(n\) must be even; otherwise \(n\) not
-being even would force \(n^2\) not to be even.
+**Proof of Lemma 1.** Since \(x\in \mathbb{Q}\), there exist integers \(a,b\) with \(b\neq 0\) such that
 
-Now suppose, for the sake of contradiction, that \(\sqrt{2}\) is rational.
-Then there exist integers \(p\) and \(q\), with \(q\neq 0\), such that
 \[
-\sqrt{2}=\frac{p}{q}.
+x=\frac{a}{b}.
 \]
-Consider the set
+
+If \(b<0\), replace \(a,b\) by \(-a,-b\), so we may assume \(b>0\). Consider the nonempty set
+
 \[
-S=\left\{ d\in \mathbb{Z}_{>0} : \text{there exists } c\in\mathbb{Z}
-\text{ such that } \sqrt{2}=\frac{c}{d} \right\}.
+S=\left\{n\in \mathbb{Z}_{>0} : x=\frac{m}{n}\text{ for some }m\in \mathbb{Z}\right\}.
 \]
-This set is nonempty: if \(q>0\), then \(q\in S\), while if \(q<0\), then
-\(-q\in S\) because
+
+This set is nonempty because \(b\in S\). By the well-ordering principle, \(S\) has a least element; call it \(q\). Choose \(p\in \mathbb{Z}\) such that
+
 \[
-\frac{p}{q}=\frac{-p}{-q}.
+x=\frac{p}{q}.
 \]
-By the well-ordering principle, since \(S\) is a nonempty subset of the positive
-integers, \(S\) has a least element. Let \(b\) be this least element, and choose
-an integer \(a\) such that
+
+Suppose some integer \(d>1\) divides both \(p\) and \(q\). Then \(p=dp'\) and \(q=dq'\) for some integers \(p',q'\). Since \(q>0\) and \(d>1\), we have \(q'>0\) and \(q'<q\). Also,
+
 \[
-\sqrt{2}=\frac{a}{b}.
+x=\frac{p}{q}=\frac{dp'}{dq'}=\frac{p'}{q'}.
 \]
-Thus \(b>0\), and \(b\) is minimal among all positive integer denominators of
-representations of \(\sqrt{2}\) as a ratio of integers.
+
+Thus \(q'\in S\), contradicting the minimality of \(q\). Therefore no integer \(d>1\) divides both \(p\) and \(q\). \(\square\)
+
+We also need the following elementary divisibility fact.
+
+**Lemma 2.** If \(7\mid n^2\), then \(7\mid n\).
+
+**Proof of Lemma 2.** By the division algorithm, every integer \(n\) can be written as
+
+\[
+n=7t+r
+\]
+
+for some integer \(t\) and some \(r\in \{0,1,2,3,4,5,6\}\). Then
+
+\[
+n^2 \equiv r^2 \pmod 7.
+\]
+
+The possible squares modulo \(7\) are
+
+\[
+0^2\equiv 0,\quad
+1^2\equiv 1,\quad
+2^2\equiv 4,\quad
+3^2\equiv 2,\quad
+4^2\equiv 2,\quad
+5^2\equiv 4,\quad
+6^2\equiv 1
+\pmod 7.
+\]
+
+Thus the only way \(n^2\equiv 0\pmod 7\) is if \(r=0\). Hence \(7\mid n\). \(\square\)
+
+Now suppose, for contradiction, that \(\sqrt{7}\) is rational. By Lemma 1, we may write
+
+\[
+\sqrt{7}=\frac{p}{q}
+\]
+
+where \(p,q\in \mathbb{Z}\), \(q>0\), and no integer \(d>1\) divides both \(p\) and \(q\).
 
 Squaring both sides gives
-\[
-2=\frac{a^2}{b^2}.
-\]
-Since \(b\neq 0\), multiplying by \(b^2\) yields
-\[
-a^2=2b^2.
-\]
-Thus \(a^2\) is even. By the parity fact proved above, \(a\) is even, so there
-exists an integer \(c\) such that
-\[
-a=2c.
-\]
-Substituting this into \(a^2=2b^2\), we get
-\[
-(2c)^2=2b^2.
-\]
-Hence
-\[
-4c^2=2b^2,
-\]
-and dividing by \(2\) gives
-\[
-2c^2=b^2.
-\]
-Therefore \(b^2\) is even. By the same parity fact, \(b\) is even, so there
-exists an integer \(d\) such that
-\[
-b=2d.
-\]
-Since \(b>0\), we have \(d>0\). Also,
-\[
-\sqrt{2}=\frac{a}{b}=\frac{2c}{2d}=\frac{c}{d}.
-\]
-Thus \(d\in S\). But \(d=b/2\), so
-\[
-0<d<b,
-\]
-contradicting the minimality of \(b\) as the least element of \(S\).
 
-Therefore the assumption that \(\sqrt{2}\) is rational is false. Hence
-\(\sqrt{2}\) is irrational.
-\end{proof}
-```
+\[
+7=\frac{p^2}{q^2}.
+\]
+
+Since \(q\neq 0\), multiplying by \(q^2\) gives
+
+\[
+p^2=7q^2.
+\]
+
+Therefore,
+
+\[
+7\mid p^2.
+\]
+
+By Lemma 2, this implies
+
+\[
+7\mid p.
+\]
+
+So there exists an integer \(k\) such that
+
+\[
+p=7k.
+\]
+
+Substituting this into \(p^2=7q^2\), we get
+
+\[
+(7k)^2=7q^2.
+\]
+
+Thus
+
+\[
+49k^2=7q^2.
+\]
+
+Dividing by \(7\), we obtain
+
+\[
+7k^2=q^2.
+\]
+
+Hence
+
+\[
+7\mid q^2.
+\]
+
+By Lemma 2 again,
+
+\[
+7\mid q.
+\]
+
+So \(7\) divides both \(p\) and \(q\). This contradicts our choice of \(p\) and \(q\) as having no common divisor greater than \(1\).
+
+Therefore the assumption that \(\sqrt{7}\) is rational is false. Hence
+
+\[
+\boxed{\sqrt{7}\text{ is irrational}.}
+\]

@@ -1,7 +1,0 @@
-Anchor: Lemma 1  
-Location: “By strict Jensen’s inequality, \(\sum_{i=1}^n w_i f(y_i) < f\left(\sum_{i=1}^n w_i y_i\right)\), because the weights \(w_i\) are all positive and the numbers \(y_i\) are not all equal.”  
-Description: Justification Gap. The proof does not explicitly justify that the \(y_i=x_i^q\) are not all equal from the hypothesis that the \(x_i\) are not all equal. This requires using the injectivity/strict monotonicity of \(t\mapsto t^q\) on \((0,\infty)\) for \(q>0\), which is not stated.
-
-Anchor: global  
-Location: “Now apply the lemma with \(n=7,\qquad w_1=\cdots=w_7=\frac17\), and \((x_1,\dots,x_7)=(7,1,1,1,1,1,1)\). These entries are positive and not all equal.”  
-Description: Justification Gap. The application of the lemma does not explicitly verify all of the lemma’s weight hypotheses, namely that each \(w_i>0\) and that \(\sum_{i=1}^7 w_i=1\).

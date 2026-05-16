@@ -8,6 +8,8 @@ from prompts import CORRECTION_PROMPT
 
 def improve(problem, solution, bug_report, model="openai"):
     api = importlib.import_module("api_google" if model == "gemini" else "api_oai")
+    # LaTeX content contains bare { } — str.format() mis-parses them as placeholders.
+    # Use replace() like brainstorm.py does.
     prompt = CORRECTION_PROMPT.replace("{problem}", problem).replace("{solution}", solution).replace("{bug_report}", bug_report)
     return api.call_llm("", prompt)
 

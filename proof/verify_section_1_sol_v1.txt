@@ -1,7 +1,0 @@
-Anchor: global  
-Location: “Among all such representations, choose one with $\gcd(a,b)=1$; that is, assume $\frac{a}{b}$ is written in lowest terms.”  
-Description: Justification Gap. The solution does not justify that a rational representation of $\sqrt{2}$ can be chosen in lowest terms. This relies on an unstated result about reducing integer fractions by their greatest common divisor / existence of lowest-term representations.
-
-Anchor: global  
-Location: “We now use the following elementary fact: if $n^2$ is even, then $n$ is even. Indeed, the contrapositive is clear: if $n$ is odd, then $n=2k+1$ for some integer $k$…”  
-Description: Justification Gap. The proof of the “elementary fact” relies on the unstated equivalence between “not even” and “odd” for integers, and on the logical equivalence between a statement and its contrapositive. The argument shows that odd integers square to odd integers, but it does not explicitly establish that this is the contrapositive of the desired implication.

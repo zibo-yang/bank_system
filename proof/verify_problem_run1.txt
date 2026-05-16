@@ -1,7 +1,0 @@
-Anchor: Step 4  
-Location: “By Lemma~\ref{lem:zero-padding} (with $B=H$, $m=2$, $k=n-2$), \[\rho_p(M) = \rho_p(H) \quad\text{and}\quad \rho_{p+1}(M) = \rho_{p+1}(H).\]”  
-Description: Justification Gap: The submitted solution does not include the statement or proof of Lemma~\ref{lem:zero-padding}; it only contains an `\input{section_3_zero_padding}` placeholder. Therefore the preservation of $\rho_r$ under zero-padding is used without an explicitly available justified result, and its hypotheses cannot be checked.
-
-Anchor: Step 4  
-Location: “By Lemma~\ref{lem:rho-hadamard}, since $p \geq 3 > 2$ and $p+1 \geq 4 > 2$, \[\rho_p(H) = 2^{1-1/p} \quad\text{and}\quad \rho_{p+1}(H) = 2^{1-1/(p+1)}.\]”  
-Description: Justification Gap: The submitted solution does not include the statement or proof of Lemma~\ref{lem:rho-hadamard}; it only contains earlier `\input{...}` placeholders. The formula for $\rho_r(H)$ is essential to the conclusion, but it is invoked without an explicitly available justified result, so the argument is incomplete.

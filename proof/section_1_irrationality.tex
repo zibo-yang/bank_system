@@ -2,49 +2,109 @@
 $\sqrt{7}$ is irrational.
 \end{theorem}
 
+We first justify the ``lowest terms'' step.
+
+\begin{lemma}\label{lem:lowest-terms}
+If $x\in \mathbb{Q}$, then $x=\frac{p}{q}$ for some integers $p,q$ with $q>0$, such that no integer $d>1$ divides both $p$ and $q$.
+\end{lemma}
+
 \begin{proof}
-Suppose, for contradiction, that $\sqrt{7}$ is rational. Then there exist integers $a$ and $b$ with $b \neq 0$ such that
+Since $x\in \mathbb{Q}$, there exist integers $a,b$ with $b\neq 0$ such that
 \[
-\sqrt{7}=\frac{a}{b},
+x=\frac{a}{b}.
 \]
-and we may choose $a$ and $b$ so that the fraction is in lowest terms, meaning
+If $b<0$, replace $a,b$ by $-a,-b$, so we may assume $b>0$. Consider the nonempty set
 \[
-\gcd(a,b)=1.
+S=\left\{n\in \mathbb{Z}_{>0} : x=\frac{m}{n}\text{ for some }m\in \mathbb{Z}\right\}.
 \]
-(Such a representation exists because, given any integers $a$ and $b$ with $b \neq 0$, we can divide both by $\gcd(a,b)$ to obtain an equivalent fraction whose numerator and denominator are coprime.)
+This set is nonempty because $b\in S$. By the well-ordering principle, $S$ has a least element; call it $q$. Choose $p\in \mathbb{Z}$ such that
+\[
+x=\frac{p}{q}.
+\]
+Suppose some integer $d>1$ divides both $p$ and $q$. Then $p=dp'$ and $q=dq'$ for some integers $p',q'$. Since $q>0$ and $d>1$, we have $q'>0$ and $q'<q$. Also,
+\[
+x=\frac{p}{q}=\frac{dp'}{dq'}=\frac{p'}{q'}.
+\]
+Thus $q'\in S$, contradicting the minimality of $q$. Therefore no integer $d>1$ divides both $p$ and $q$.
+\end{proof}
+
+We also need the following elementary divisibility fact.
+
+\begin{lemma}\label{lem:7-divides-square}
+If $7\mid n^2$, then $7\mid n$.
+\end{lemma}
+
+\begin{proof}
+By the division algorithm, every integer $n$ can be written as
+\[
+n=7t+r
+\]
+for some integer $t$ and some $r\in \{0,1,2,3,4,5,6\}$. Then
+\[
+n^2 \equiv r^2 \pmod{7}.
+\]
+The possible squares modulo $7$ are
+\[
+0^2\equiv 0,\quad
+1^2\equiv 1,\quad
+2^2\equiv 4,\quad
+3^2\equiv 2,\quad
+4^2\equiv 2,\quad
+5^2\equiv 4,\quad
+6^2\equiv 1
+\pmod{7}.
+\]
+Thus the only way $n^2\equiv 0\pmod{7}$ is if $r=0$. Hence $7\mid n$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem]
+Suppose, for contradiction, that $\sqrt{7}$ is rational. By Lemma~\ref{lem:lowest-terms}, we may write
+\[
+\sqrt{7}=\frac{p}{q}
+\]
+where $p,q\in \mathbb{Z}$, $q>0$, and no integer $d>1$ divides both $p$ and $q$.
 
 Squaring both sides gives
 \[
-7=\frac{a^2}{b^2}.
+7=\frac{p^2}{q^2}.
 \]
-
-Multiplying by $b^2$, we get
+Since $q\neq 0$, multiplying by $q^2$ gives
 \[
-a^2=7b^2.
+p^2=7q^2.
 \]
-
-Thus $7 \mid a^2$. Since $7$ is prime, if $7 \mid a^2$, then $7 \mid a$ (by Euclid's lemma: if a prime $p$ divides a product $mn$, then $p \mid m$ or $p \mid n$; here applied with $m = n = a$). Therefore, there exists an integer $k$ such that
+Therefore,
 \[
-a=7k.
+7\mid p^2.
 \]
-
-Substituting this into $a^2=7b^2$, we obtain
+By Lemma~\ref{lem:7-divides-square}, this implies
 \[
-(7k)^2=7b^2,
+7\mid p.
 \]
-hence
+So there exists an integer $k$ such that
 \[
-49k^2=7b^2.
+p=7k.
 \]
-
-Dividing by $7$ gives
+Substituting this into $p^2=7q^2$, we get
 \[
-7k^2=b^2.
+(7k)^2=7q^2.
 \]
+Thus
+\[
+49k^2=7q^2.
+\]
+Dividing by $7$, we obtain
+\[
+7k^2=q^2.
+\]
+Hence
+\[
+7\mid q^2.
+\]
+By Lemma~\ref{lem:7-divides-square} again,
+\[
+7\mid q.
+\]
+So $7$ divides both $p$ and $q$. This contradicts our choice of $p$ and $q$ as having no common divisor greater than~$1$.
 
-So $7 \mid b^2$. Again, since $7$ is prime, Euclid's lemma implies $7 \mid b$.
-
-Therefore, both $a$ and $b$ are divisible by $7$, so $\gcd(a,b) \geq 7$. This contradicts the assumption that $\gcd(a,b)=1$.
-
-This contradiction shows that $\sqrt{7}$ cannot be rational; hence $\sqrt{7}$ is irrational.
+Therefore the assumption that $\sqrt{7}$ is rational is false, and we conclude that $\sqrt{7}$ is irrational.
 \end{proof}

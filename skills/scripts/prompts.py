@@ -67,7 +67,7 @@ If no issues are found, state the solution is correct.
 
 Otherwise, produce a bug report listing every issue found. For each issue, emit EXACTLY these three fields, in this order, on separate lines:
 
-*   **Anchor:** the precise location in the solution that the issue is about. MUST be one of: `Step N` (matching a step heading like "Step 1", "Step 2.", etc.), `Lemma <label>` or `Theorem <label>` (use the LaTeX `\label{...}` value if present, otherwise the lemma's number), or `global` (reserved for cross-cutting issues that genuinely do not attach to any single step or lemma — use sparingly). For issues about a specific equation, use the enclosing Step or Lemma anchor.
+*   **Anchor:** the precise location in the solution that the issue is about. MUST be one of: `Step N` (matching a step heading like "Step 1", "Step 2.", etc.), `Lemma <label>` or `Theorem <label>` (use the LaTeX `\label{{...}}` value if present, otherwise the lemma's number), or `global` (reserved for cross-cutting issues that genuinely do not attach to any single step or lemma — use sparingly). For issues about a specific equation, use the enclosing Step or Lemma anchor.
 *   **Location:** quoted relevant text from the solution showing the offending line(s).
 *   **Description:** the issue, classified as Critical Error or Justification Gap.
 

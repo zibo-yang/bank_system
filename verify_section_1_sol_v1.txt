@@ -1,1 +1,3 @@
-The solution is correct.
+Anchor: global  
+Location: “and we may choose $p$ and $q$ so that \[\gcd(p,q)=1.\]”  
+Description: Justification Gap: The proof relies on the fact that every rational number can be represented as a fraction of coprime integers, but this theorem/property is not stated or justified. The later contradiction depends on this reduced-form choice.

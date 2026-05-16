@@ -1,14 +1,14 @@
 {
-  "id": "JAXd7YiOFInzDw",
+  "id": "UpoksG6szop36A",
   "userId": "9a90f875-3b1f-4577-bb48-789690914aca",
-  "name": "test2",
+  "name": "15",
   "description": "",
-  "localPath": "/Users/avalon/numina-projects/9a90f875-3b1f-4577-bb48-789690914aca/JAXd7YiOFInzDw",
+  "localPath": "/Users/avalon/numina-projects/9a90f875-3b1f-4577-bb48-789690914aca/UpoksG6szop36A",
   "repoUrl": "direct",
   "status": "active",
-  "createdAt": "2026-05-15T13:41:30.056Z",
-  "updatedAt": "2026-05-15T13:41:30.056Z",
-  "lastActivityAt": "2026-05-15T13:41:30.056Z",
+  "createdAt": "2026-05-16T16:47:10.994Z",
+  "updatedAt": "2026-05-16T16:47:10.994Z",
+  "lastActivityAt": "2026-05-16T16:47:10.994Z",
   "workflowType": "vibe_proving",
   "deliverableType": "proof",
   "githubRepoName": "zibo-yang/bank_system",
@@ -19,6 +19,6 @@
   "hfDatasetName": null,
   "requirePlanApproval": false,
   "targetPlatform": null,
-  "budgetUsd": 2,
+  "budgetUsd": 20,
   "schemaVersion": 1
 }
